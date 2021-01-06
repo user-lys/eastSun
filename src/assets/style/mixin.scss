@@ -1,0 +1,91 @@
+@mixin border_1px($color) {
+  position: relative;
+  @media (-webkit-min-device-pixel-ratio:1.5),
+  (min-device-pixel-ratio:1.5) {
+    &::before {
+      content: " ";
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      background-color: $color;
+      transform: scaleY(0.667);
+      height: 1px;
+      width: 100%;
+    }
+  }
+  @media (-webkit-min-device-pixel-ratio:2),
+  (min-device-pixel-ratio:2) {
+    &::before {
+      content: " ";
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      background-color: $color;
+      transform: scaleY(0.5);
+      height: 1px;
+      width: 100%;
+    }
+  }
+  @media (-webkit-min-device-pixel-ratio:3),
+  (min-device-pixel-ratio:3) {
+    &::before {
+      content: " ";
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      background-color: $color;
+      transform: scaleY(0.333);
+      height: 1px;
+      width: 100%;
+    }
+  }
+}
+@mixin border_1px_bottom($color) {
+  position: relative;
+  @media (-webkit-min-device-pixel-ratio:1.5),
+  (min-device-pixel-ratio:1.5) {
+    &::after {
+      content: " ";
+      position: absolute;
+      left: 0px;
+      top: 44px;
+      background-color: $color;
+      transform: scaleY(0.667);
+      height: 1px;
+      width: 100%;
+    }
+  }
+  @media (-webkit-min-device-pixel-ratio:2),
+  (min-device-pixel-ratio:2) {
+    &::after {
+      content: " ";
+      position: absolute;
+      left: 0px;
+      top: 44px;
+      background-color: $color;
+      transform: scaleY(0.5);
+      height: 1px;
+      width: 100%;
+    }
+  }
+  @media (-webkit-min-device-pixel-ratio:3),
+  (min-device-pixel-ratio:3) {
+    &::after {
+      content: " ";
+      position: absolute;
+      left: 0px;
+      top: 44px;
+      background-color: $color;
+      transform: scaleY(0.333);
+      height: 1px;
+      width: 100%;
+    }
+  }
+}
+@mixin ellipsis($width:100%,$line-clamp:1){
+  width: $width;
+  display: -webkit-box;
+  -webkit-line-clamp: $line-clamp;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
