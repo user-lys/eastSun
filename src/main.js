@@ -2,10 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import '@/utils/filters'
+import '@/utils/cache'
 import './assets/style/reset.scss'
-
-import Http from '@/utils/http'
-Vue.prototype.$http = new Http()
 
 Vue.config.productionTip = false
 
