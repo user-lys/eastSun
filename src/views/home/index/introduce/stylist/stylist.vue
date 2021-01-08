@@ -1,5 +1,5 @@
 <template>
   <div>
-    stylist page
+    stylist page  lvs
   </div>
 </template>
