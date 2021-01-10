@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-instance.interceptors.response.use((ret) => {
+axios.interceptors.response.use((ret) => {
 
   return ret.data || ret;
 })
