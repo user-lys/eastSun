@@ -5,6 +5,11 @@ export const getCityInfo = (params) => {
   return get(url, params)
 }
 
+export const getProcessInfo = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/subject?site_id=1';
+  return get(url, params)
+}
+
 
 
 
