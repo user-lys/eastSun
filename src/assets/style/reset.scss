@@ -8,8 +8,8 @@
 html,
 body {
   overflow: auto;
-  height: 100%; 
-}
+  height: 100%; }
+
 
 ::-webkit-scrollbar {
   display: none; }
@@ -28,6 +28,21 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: PingFangSC-Regular, Hiragino Sans GB, sans-serif }
+
+.main{
+  padding: 45px 0 60px 0;
+}
+.adv{
+  width: 100%;
+  height: 120px;
+  background: red;
+}
+
+.adv{
+  width: 100%;
+  height: 120px;
+  background: red;
+}
 
 ul,
 ol,
