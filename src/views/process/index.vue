@@ -79,16 +79,22 @@ import "../../../node_modules/swiper/dist/js/swiper.js";
 import Swiper from "swiper";
 
 export default {
+    data() {
+    return {
+      show: false,
+    };
+  },
+
   components: {
     back,
     home,
   },
   name: "Slider",
   methods: {
-    process(){
-
-      console.log("点击了");
+    showPopup() {
+      this.show = true;
     },
+
     more(){
       this.$router.push('/case');
     },
