@@ -51,14 +51,15 @@ export default {
     }
   },
 }
+
 </script>
 
 <style lang="scss" scoped>
-
-body{
+.bdy{
+    overflow: hidden;
     width:100%;
-	height: 100%;
-	 background-image: url('../../assets/image/beijing.png') no-repeat;
+	height: 550px;
+	 background: url("../../assets/image/bj.png") no-repeat;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
