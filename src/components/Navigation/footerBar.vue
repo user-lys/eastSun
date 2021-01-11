@@ -33,11 +33,11 @@ export default {
     data() {
       return {
         active: 0,
-        urls: ["/index", "/wantDecoration", "/mine"],
+        urls: ["/index/stylists", "/wantDecoration", "/mine"],
       };
     },
     created() {
-      this.active = this.urls.indexOf(this.$route.path);
+      this.active = this.urls.indexOf(this.$route.path)>=0 ? this.urls.indexOf(this.$route.path) : 0;
     },
     methods: {
       changeItem(index) {

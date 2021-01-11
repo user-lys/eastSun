@@ -1,10 +1,11 @@
 <template>
   <div class="main">
-    <van-swipe :autoplay="3000">
+    <van-swipe :autoplay="3000" :touchable="true">
       <van-swipe-item v-for="(image, index) in images" :key="index">
         <img v-lazy="image" />
       </van-swipe-item>
     </van-swipe>
+
     <div class="icon-warp">
       <div class="icon-item">
         <span @click="go('../../case')" class="iconfont icon-case"></span><label for=".icon-case">装修案例</label>
@@ -24,6 +25,7 @@
 
 
     </div>
+
     <cutting></cutting>
 
     <div class="case">
@@ -33,7 +35,7 @@
           <p>更多</p> >
         </span>
       </div>
-      <van-swipe class="case-swipe" :loop="false" :width="280" indicator-color="white">
+      <van-swipe class="case-swipe" :loop="false" :width="280" indicator-color="white" :touchable="true">
         <van-swipe-item class="case-swipe-item">1</van-swipe-item>
         <van-swipe-item class="case-swipe-item">2</van-swipe-item>
         <van-swipe-item class="case-swipe-item">3</van-swipe-item>
@@ -85,9 +87,62 @@
     </div>
 
     <cutting></cutting>
+
+    <div class="case" style="height:200px">
+      <div class="best-works">
+        <h2>装修流程 </h2>
+      </div>
+      <div class="flow">
+        <ul>
+          <li><img src="/images/iconImg/dianhua.png" alt=""></li>
+          <svg t="1610326504349" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11278" width="20" height="35">
+            <path d="M161.71 512m-98 0a98 98 0 1 0 196 0 98 98 0 1 0-196 0Z" p-id="11279"></path>
+            <path d="M511 512m-98 0a98 98 0 1 0 196 0 98 98 0 1 0-196 0Z" p-id="11280">
+            </path><path d="M860.29 512m-98 0a98 98 0 1 0 196 0 98 98 0 1 0-196 0Z" p-id="11281"></path></svg>
+          <li><img src="/images/iconImg/fanganshejishu.png" alt=""></li>
+          <svg t="1610326504349" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11278" width="20" height="35">
+            <path d="M161.71 512m-98 0a98 98 0 1 0 196 0 98 98 0 1 0-196 0Z" p-id="11279"></path>
+            <path d="M511 512m-98 0a98 98 0 1 0 196 0 98 98 0 1 0-196 0Z" p-id="11280"></path>
+            <path d="M860.29 512m-98 0a98 98 0 1 0 196 0 98 98 0 1 0-196 0Z" p-id="11281"></path></svg>
+          <li><img src="/images/iconImg/shigong.png" alt=""></li>
+            <svg t="1610326504349" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11278" width="20" height="35">
+            <path d="M161.71 512m-98 0a98 98 0 1 0 196 0 98 98 0 1 0-196 0Z" p-id="11279"></path>
+            <path d="M511 512m-98 0a98 98 0 1 0 196 0 98 98 0 1 0-196 0Z" p-id="11280"></path>
+            <path d="M860.29 512m-98 0a98 98 0 1 0 196 0 98 98 0 1 0-196 0Z" p-id="11281"></path></svg>
+          <li><img src="/images/iconImg/kefu.png" alt=""></li>
+        </ul>
+        <ol>
+          <li>家装咨询</li>
+          <li>方案设计</li>
+          <li>工程施工</li>
+          <li>售后服务</li>
+        </ol>
+      </div>
+     
+    </div>
     <keep-alive>
-      <router-view></router-view>
+      <div class="tab-warp">
+        <ul :class="{warpactive:borderShow}" >
+          <li v-for="(item,index) in tabs" :class="{active:shows===index}"  :key='index' @click="changeActive(index)">{{item.name}}</li>  
+        </ul>
+          <router-view class="show-tab"></router-view>
+      </div>
     </keep-alive>
+    <div class="case" style="height:260px">
+      <div class="best-works">
+        <h2>业主故事</h2>
+      </div>
+      <van-swipe class="case-swipe" :loop="false" :width="260" :height="150" :show-indicators="false" :touchable="true">
+        <van-swipe-item class="case-swipe-item">1</van-swipe-item>
+        <van-swipe-item class="case-swipe-item">2</van-swipe-item>
+        <van-swipe-item class="case-swipe-item">3</van-swipe-item>
+        <van-swipe-item class="case-swipe-item">4</van-swipe-item>
+      </van-swipe>
+    </div>
+    
+    <div class="adv">
+      <img src="" alt="">
+    </div>
   </div>
 </template>
 
@@ -101,7 +156,8 @@
     SwipeItem,
     Toast,
     Lazyload,
-    Icon
+    Icon,
+
   } from 'vant';
   Vue.use(Swipe).use(SwipeItem).use(Lazyload, {
     lazyComponent: true
@@ -115,6 +171,27 @@
           "/images/swipe/swipe3.jpg",
           "/images/swipe/swipe4.jpg",
         ],
+        shows: 0,
+        tabs:[
+          {
+            name:"设计师",
+            url:"/index/stylists"
+          },
+          {
+            name:"空间相册",
+            url:"/index/photo",
+            },
+          {
+            name:"在线工地",
+            url:"/index/site",
+            },
+          {
+            name:"装修攻略",
+            url:"/index/decorate",
+            }
+        ],
+        borderShow: false,
+
       };
     },
     methods: {
@@ -122,6 +199,10 @@
         this.$router.push({
           path: url
         })
+      },
+      changeActive(index){
+        this.shows = index;
+        this.go(this.tabs[index].url);
       },
     },
     components: {
@@ -133,8 +214,7 @@
   @import "@/assets/style/mixin.scss";
 
   .main {
-    margin: 45px 0 60px 0;
-
+    
     .van-swipe .van-swipe-item {
       color: #fff;
       font-size: 20px;
@@ -164,8 +244,6 @@
         }
       }
     }
-
-
 
     .best-works {
       display: flex;
@@ -198,8 +276,10 @@
       height: 360px;
 
       .case-swipe {
+        box-sizing: border-box;
+        width: 100%;
         .case-swipe-item {
-          margin-left: 15px;
+          margin: 0 10px;
           margin-bottom: 10px;
           border-radius: 2px;
           box-shadow: #333 -5px 5px 10px -5px;
@@ -289,17 +369,104 @@
               font-size: 12px;
               transform: scale(0.6);
             }
-          } 
-          .fitment-icon{
+          }     
+        }
+      }
+      .flow{
+        width: 100%;
+        height: 100px;
 
+        ul{
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          margin: 20px 0;
+          li{
+            background: #F7F7F7;
+            width: 30px;
+            height: 30px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+              width: 20px;
+              height: 20px;
+              transform: rotate(-45deg);
+            }
           }
-          
+          li:nth-child(1){
+            border-left: 1px solid #D0B969;     
+          }
+          li:nth-child(3){
+            border-left: 1px solid #D0B969;
+            border-top: 1px solid #D0B969;
+          }
+          li:nth-child(5){
+            border-left: 1px solid #D0B969;
+            border-top: 1px solid #D0B969;
+            border-right: 1px solid #D0B969;
+          }
+          li:nth-child(7){
+            border: 1px solid #D0B969;
+          }
+        }
+        ol{
+          display: flex;
+          justify-content: space-evenly;
+          align-content: center;
+          li{
+            margin: 0 15px;
+            font-size: 13px;
+            @include border_1px($width:12px, $height:2px, $left:20px, $top:20px, $color:#D0B969);
+          }
+          li:nth-child(1){
+            margin-left: 0px;
+          }
+          li:nth-child(4){
+            margin-right: 0px;
+          }
+        }
+      }
+
+    }
+
+    .tab-warp{
+      width: 100%;
+      height: 60px;
+      background: #F7F7F7;
+      .warpactive{
+        border-bottom: 5px solid #E1E1E1;
+        border-radius: 5px;
+      }
+      ul{
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .active{
+          @include border_1px($width:12px, $height:2px, $left:39%, $top:30px, $color:#D0B969);
+          font-weight: 800;
+          font-size: 16px;
+        }
+        li{
+          margin: 0 10px; 
+          font-size: 14px;
         }
         
-        
-    
+      }
+      .show-tab{
+        width: 100%;
+        height: 200px;
       }
     }
 
+    .adv{
+      width: 100%;
+      height: 120px;
+      background: red;
+    }
   }
 </style>

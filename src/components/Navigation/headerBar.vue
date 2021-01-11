@@ -33,9 +33,10 @@
     text-shadow:1px 1px 1px #000, -1px -1px 1px #fff;
   }
   #city {
+    font-size: 15px;
     position: absolute;
     left: 15px;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
   }
   .icon {
@@ -45,7 +46,7 @@
     border-bottom:6px solid #ccc;
     position: absolute;
     left: 44px;
-    top: 26px;
+    top: 29px;
     }
   }
 </style>
