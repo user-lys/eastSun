@@ -20,5 +20,4 @@ export default {
   left: 10px;
   top: 20px;
 }
-
 </style>
