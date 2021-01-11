@@ -12,7 +12,6 @@
   </div>
 </template>
 
-
 <style lang="scss" scoped>
 .header {
     width: 100%;
@@ -25,9 +24,12 @@
     position: fixed;
     top: 0;
     z-index: 11;
+
+    display: none;
   h1 {
     flex: 1;
     margin-top: 5px;
+    
     color: #000;
     font: 600 22px "微软雅黑";
     text-shadow:1px 1px 1px #000, -1px -1px 1px #fff;
