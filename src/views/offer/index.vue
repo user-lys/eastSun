@@ -3,14 +3,14 @@
     <!-- offer page -->
      <div class="head">
        <div class="header" >
-        <span class="sp1" @click="back">
-            <img src="../../assets/image/xiaoyuhao1.png" alt="" style="width:25px;margin-left:10px;">
-        </span>
-        <span style="margin-left:10px;font-size:16px;line-height:1;" @click="back">返回</span>
-        <span class="sp2">
-            <img src="../../assets/image/fangzi1.png" alt="" style="width:25px;margin-left:10px;">
-        </span>
-        <span class="sp3" style="font-weight:800;color:black;">装修报价</span>
+          <span class="sp1" @click="back">
+              <img src="../../assets/image/xiaoyuhao1.png" alt="" style="width:25px;margin-left:10px;">
+          </span>
+          <span style="margin-left:10px;font-size:16px;line-height:1;" @click="back">返回</span>
+          <span class="sp2">
+              <img src="../../assets/image/fangzi1.png" alt="" style="width:25px;margin-left:10px;">
+          </span>
+          <span class="sp3" style="font-weight:800;color:black;">装修报价</span>
         </div>
         <div class="center" style="margin-top:10px;"> 
           <img src="../../assets/image/calculate.png" alt="" style="height:200px;width:100%;">
@@ -59,7 +59,6 @@ body{
   overflow: scroll;
 }
 .entire{
-  height:100%;
   display: flex;
   flex-direction: column;
 }
@@ -68,10 +67,12 @@ body{
    position: relative;
 }
 .header{
-  height:60px;
+  background: white;
+  height:40px;
   position: fixed;
   top:0;
   left:0;
+  z-index: 1;
 }
 .header .sp3{
   line-height:1;

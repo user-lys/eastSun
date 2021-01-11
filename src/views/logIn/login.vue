@@ -123,7 +123,7 @@ button{
     color:white;
     font-size: 12px;
     position: absolute;
-    bottom: -120px;
+    bottom: -100px;
 }
 .read > a{
     color:yellow;

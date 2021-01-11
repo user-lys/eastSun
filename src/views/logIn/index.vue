@@ -1,7 +1,8 @@
 <template>
   <div class="wrap">
     <router-view></router-view>
-      <div class="back"> </div>
+      <div class="back"></div>
+      <div class="box"></div>
       <div class="center">
           <div class="white">
             <div class="img">
@@ -53,7 +54,11 @@
                 <span class="sp2">退出登录</span>
                 <span class="sp3"> > </span>
               </li>
+              
             </ul>
+
+          </div>
+          <div class="uul">
 
           </div>
       </div>
@@ -84,11 +89,7 @@ export default {
 
 
 <style lang="scss" scoped>
-  body{
-    overflow: auto;
-  }
   .wrap{
-    height:100%;
     display: flex;
     flex-direction: column;
   }
@@ -101,12 +102,13 @@ export default {
     flex:1;
     background: #7f7f7f;
     position: relative;
+    padding-bottom:100px;
   }
   .white{
     width: 80%;
     height:160px;
     background: white;
-    margin-top:-100px;
+    top:-80px;
     margin-left: 10%;
     position: absolute;
   }
@@ -114,7 +116,6 @@ export default {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    // border:1px solid red;
     position: absolute;
     left:50%;
     transform: translateX(-50%);
@@ -150,13 +151,14 @@ export default {
     float:left;
     text-align: center;
   }
+
   .list{
     width: 80%;
-    height: 300px;
+
     background: #ffffff;
-    top:100px;
-    left:10%;
-    position: absolute;
+    margin-top:100px;
+    margin-bottom:30px;
+    margin-left:10%;
   }
   ul > li{
     padding:15px 20px;
