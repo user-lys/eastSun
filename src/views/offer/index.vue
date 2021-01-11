@@ -4,7 +4,7 @@
      <div class="head">
        <div class="header" >
         <span class="sp1" @click="back">
-            <img src="../../assets/image/xiaoyuhao1.png" alt="" style="width:25px;margin-left:10px;" @click="back">
+            <img src="../../assets/image/xiaoyuhao1.png" alt="" style="width:25px;margin-left:10px;">
         </span>
         <span style="margin-left:10px;font-size:16px;line-height:1;" @click="back">返回</span>
         <span class="sp2">

@@ -100,9 +100,9 @@ export default {
 .footer{
     background: transparent;
     position: absolute;
-    bottom:100px;
+
+    bottom:80px;
     width:80%;
-    margin:0;
     margin:10%;
 }
 .footer > div{

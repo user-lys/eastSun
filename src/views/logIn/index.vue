@@ -2,7 +2,7 @@
   <div class="wrap">
     <router-view></router-view>
       <div class="back"> </div>
-      <div class="center" id="ll">
+      <div class="center">
           <div class="white">
             <div class="img">
               <img src="../../assets/image/login.png" alt="">
@@ -75,7 +75,7 @@ export default {
    },
    methods:{
      jump(){
-       this.$router.push("/price")
+       this.$router.push("/center/price")
      }
    }
 }
@@ -85,14 +85,12 @@ export default {
 
 <style lang="scss" scoped>
   body{
-    overflow: scroll;
+    overflow: auto;
   }
   .wrap{
-    height:800px;
+    height:100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    padding-bottom: 100px;
   }
   .back{
     width:100%;
@@ -100,11 +98,9 @@ export default {
     background:linear-gradient( 180deg,	DimGray 0,black 45%);
   }
   .wrap .center{
-
     flex:1;
     background: #7f7f7f;
     position: relative;
-    
   }
   .white{
     width: 80%;
@@ -196,10 +192,4 @@ export default {
     margin-right:10px;
     font-size: 18px;
   }
-  // .list > ul{
-  //   margin-top: 180px;
-  //   width: 80%;
-  //   height:500px;
-  //   background: red;
-  // }
 </style>

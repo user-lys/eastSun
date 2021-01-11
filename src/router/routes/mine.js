@@ -6,6 +6,7 @@ import Price from "@/views/offer/index"
 import Mine from "@/views/home/mine"
 let login = [
   {
+    //个人中心页面
     path: '/center',
     component: Center,
     // children:[
@@ -13,10 +14,12 @@ let login = [
     // ],
   },
   {
+    //收藏页面
     path: '/center/collect',
     component: Collect,
   },
   {
+    //登录页面
     path: '/login',
     component: Login
   },
@@ -25,7 +28,8 @@ let login = [
     component: MySelect
   },
   {
-    path: '/price',
+    //我要报价
+    path: '/center/price',
     component: Price
   },
   {
