@@ -1,13 +1,10 @@
 import {get,post} from './http'
 
-export const getZxal = (params) => {
-  let url = '';
+export const getCityInfo = (params) => {
+  let url = 'https://api.iynn.cn/film/api/v1/getCitiesInfo?cors=T&';
   return get(url, params)
 }
-export const getZxal = (params) => {
-  let url = '';
-  return get(url, params)
-}
+
 
 
 
