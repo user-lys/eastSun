@@ -54,11 +54,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bdy{
-    height:100%;
+
+body{
     width:100%;
-    background: url('../../assets/image/beijing.png') no-repeat;
-    background-size:100% 100%;
+	height: 100%;
+	 background-image: url('../../assets/image/beijing.png') no-repeat;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 .form{
     padding-top:30px;
