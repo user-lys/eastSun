@@ -13,7 +13,7 @@ const routes = [
     redirect: "/index/stylists"
   },
   ...homeRouter,
-  wantRouter,
+  ...wantRouter,
   ...mineRouter,
 
 ];
