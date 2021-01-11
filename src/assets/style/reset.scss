@@ -7,8 +7,9 @@
 
 html,
 body {
-  overflow: hidden;
-  height: 100%; }
+  overflow: auto;
+  height: 100%; 
+}
 
 ::-webkit-scrollbar {
   display: none; }
