@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-icon class="fangzi" name="wap-home-o" size="18" @click="home" />
+    <van-icon class="fangzi" name="wap-home-o" size="20" @click="home" />
   </div>
 </template>
 <script>

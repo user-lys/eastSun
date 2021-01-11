@@ -7,10 +7,9 @@ let wantDesign =  [
   component: Offer
   },
   {
-  path: '/wantDecoration',
+  path: '/want',
   component: wantDecoration
   },
-
 ]
 
 

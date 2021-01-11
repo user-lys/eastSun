@@ -463,10 +463,6 @@
       }
     }
 
-    .adv{
-      width: 100%;
-      height: 120px;
-      background: red;
-    }
+    
   }
 </style>
