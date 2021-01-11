@@ -7,12 +7,6 @@
 import Vue from "vue";
 import { Icon } from "vant";
 export default {
-//   data() {
-//     return {
-//         top: 20,
-//         left: 20,
-//     };
-//   },
   methods: {
     prev() {
       this.$router.go(-1);
