@@ -17,3 +17,15 @@ export const getHotProperty = (params) => {
   return get(url, params)
 }
 
+
+
+export const getAddress = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/company'
+  return get(url, params)
+}
+
+
+export const getDecorateDetail = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/decorate_strategy/details?id=287'
+  return get(url, params)
+}
