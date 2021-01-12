@@ -10,5 +10,17 @@ export const getProcessInfo = (params) => {
   return get(url, params)
 }
 
+export const getshejishiInfo = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/designer?site_id=1&page=1&pageSize=8';
+  return get(url, params)
+}
+
+export const getPhotoInfo = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/photo_album?site_id=1&page=1&pageSize=8';
+  return get(url, params)
+}
+
+
+
 
 

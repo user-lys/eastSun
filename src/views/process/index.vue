@@ -32,7 +32,7 @@
     </div>
 
     <!-- 轮播图 -->
-    <div class="swiper-container">
+    <div class="swiper-container" :key="ProcessInfo.length">
       <div class="swiper-wrapper">
         <div
           class="swiper-slide"
@@ -60,8 +60,8 @@
         <van-icon name="minus" />我们是有底线的<van-icon name="minus" />
       </div>
     </div>
-      <erji></erji>
-      <phone></phone>
+    <erji></erji>
+    <phone></phone>
   </div>
 </template>
 
@@ -77,8 +77,7 @@ import erji from "@/components/rightPublic/erji";
 import phone from "@/components/rightPublic/phone";
 
 // 引入swiper
-
-import "../../../node_modules/swiper/dist/js/swiper.js";
+// import "../../../node_modules/swiper/dist/css/swiper.min.css";
 import Swiper from "swiper";
 
 // 导入网络请求
@@ -103,18 +102,19 @@ export default {
     showPopup() {
       this.show = true;
     },
-
     more() {
       this.$router.push("/case");
     },
     _initSwiper() {
-      new Swiper(".swiper-container", {
-        scrollbar: ".swiper-scrollbar",
-        scrollbarHide: true,
-        slidesPerView: "auto",
-        centeredSlides: true,
-        spaceBetween: 30,
-        grabCursor: true,
+      this.$nextTick(() => {
+        new Swiper(".swiper-container", {
+          scrollbar: ".swiper-scrollbar",
+          // scrollbarHide: true,
+          slidesPerView: "auto",
+          // centeredSlides: true,
+          spaceBetween: 30,
+          // grabCursor: true,
+        });
       });
     },
 
@@ -123,19 +123,19 @@ export default {
       const processInfo = await getProcessInfo();
       console.log(processInfo.data.list);
       this.ProcessInfo = processInfo.data.list;
+      this._initSwiper();
     },
   },
   created() {
     this.getProcessInfos();
   },
   mounted() {
-    this._initSwiper();
+    // this._initSwiper();
   },
 };
 </script>
 <style lang="scss" scoped>
-@import "../../../node_modules/swiper/dist/css/swiper.min.css";
-
+// @import "../../../node_modules/swiper/dist/css/swiper.min.css";
 .title-warp {
   display: flex;
   justify-content: center;
@@ -149,7 +149,8 @@ export default {
   background-color: white;
   .title {
     font-size: 18px;
-    font-family: "Courier New", Courier, monospace;
+    font-weight: 600;
+    font-family: Microsoft YaHei;
     position: fixed;
   }
 }
@@ -166,11 +167,11 @@ export default {
   }
   .process {
     width: 100%;
-    height: 820px;
+    height: 750px;
     margin-top: 40px;
     .process1 {
       width: 100%;
-      height: 500px;
+      height: 450px;
       img {
         width: 100%;
         height: 100%;
@@ -178,7 +179,7 @@ export default {
     }
     .process2 {
       width: 100%;
-      height: 300px;
+      height: 280px;
       img {
         width: 100%;
         height: 100%;
