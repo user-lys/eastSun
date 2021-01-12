@@ -22,10 +22,10 @@ export default {
 .phone {
    position: absolute;
   right: 10px;
-  bottom: 80px;
+  bottom: 170px;
   z-index: 9999;
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   border: 1px solid #d7cfbf;
   border-radius: 50%;
   display: flex;
