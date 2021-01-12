@@ -49,15 +49,15 @@ let index = [
   },
   
   {
-    path: '/decoratedel/:decoratedelId',
+    path: '/decoratedel',
     component: DecorateDetail
   },
   {
-    path: '/sitedel/:sitedelId',
+    path: '/sitedel',
     component: BuildingSiteDetail
   },
   {
-    path: '/photodel/:photodelId',
+    path: '/photodel',
     component: PhotoDetail
   },
   {
@@ -77,7 +77,7 @@ let index = [
     component: HotProperty
   },
   {
-    path: '/hotprodel/:hotproId',
+    path: '/hotprodel',
     component: HotPropertyDel
   },
   {
@@ -85,7 +85,7 @@ let index = [
     component: Address
   },
   {
-    path: '/addressdel/:addressId',
+    path: '/addressdel',
     component: AddressDel
   },
   {

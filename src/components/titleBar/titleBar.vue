@@ -32,7 +32,7 @@ export default {
   font-size: 18px;
   font-weight: 600;
   background:white;
-
+  z-index: 999;
   .back{
     @include icon-position(10px,-8px)
   }
