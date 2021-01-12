@@ -13,9 +13,9 @@ const routes = [
     redirect: "/index/stylists"
   },
   ...homeRouter,
-  wantRouter,
+  ...wantRouter,
   ...mineRouter,
-
+  
 ];
 const router = new VueRouter({
   routes
