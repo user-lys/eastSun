@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-icon class="tubiao" name="arrow-left" size="18" @click="prev"/>
+    <van-icon class="tubiao" name="arrow-left" size="20" @click="prev"/>
   </div>
 </template>
 <script>
@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 .tubiao {
   position: absolute;
-  left: 20px;
+  left: 10px;
   top: 20px;
 }
 </style>

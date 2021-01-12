@@ -31,7 +31,6 @@ Vue.use(Popup);
 Vue.use(Toast);
 import "../../../../../../node_modules/swiper/dist/css/swiper.min.css";
 import Swiper from "swiper";
-// 导入网络请求
 import { getshejishiInfo } from "@/api/index";
 export default {
   data() {
@@ -60,7 +59,6 @@ export default {
         });
       });
     },
-    // 发送请求
     async getshejishiInfos() {
       const shejishiInfo = await getshejishiInfo();
       console.log(shejishiInfo.data.list);
@@ -111,9 +109,6 @@ export default {
   height: 250px;
   display: flex;
   flex-direction: column;
-  // background-color: white;
-
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -126,5 +121,10 @@ export default {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+}
+</style>
+<style lang="scss" scoped>
+div{
+  margin-bottom: 100px;
 }
 </style>

@@ -12,4 +12,3 @@ export const get = (url, params) => {
 export const post =(url,params)=>{
   return axios.post(url,{...params})
 }
-

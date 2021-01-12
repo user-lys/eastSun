@@ -1,15 +1,22 @@
-import Login from "@/views/logIn"
-import MySelect from "@/views/mySelect"
-import Mine from "@/views/home/mine"
+import Login from "@/views/logIn/login"
+import MySelect from "@/views/mySelect/index"
+import Price from "@/views/offer/index"
+import Mine from "@/views/home/mine/index"
 let login = [
-  
+
   {
-    path: '/login',
+    //登录页面
+    path: '/mine/login',
     component: Login
   },
   {
-    path: '/myselect',
+    path: '/mine/myselect',
     component: MySelect
+  },
+  {
+    //我要报价
+    path: '/mine/price',
+    component: Price
   },
   {
     path: '/mine',

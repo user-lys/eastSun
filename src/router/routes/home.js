@@ -3,7 +3,7 @@ import Stylists from "@/views/home/index/introduce/stylist/stylist"
 import Photo from "@/views/home/index/introduce/photo/photo"
 import Decorate from "@/views/home/index/introduce/decorate/decorate"
 import BuildingSite from "@/views/home/index/introduce/buildingSite/buildingSite"
-import Stylist from "@/views/home/index/introduce/stylist/detail"
+import Stylist from "@/views/home/index/introduce/stylist/detail.vue"
 import PhotoDetail from "@/views/home/index/introduce/photo/detail"
 import DecorateDetail from "@/views/home/index/introduce/decorate/detail"
 import BuildingSiteDetail from "@/views/home/index/introduce/buildingSite/detail"
@@ -44,20 +44,20 @@ let index = [
     ]
   },
   {
-    path: '/stylist/:stylistId',
+    path: '/stylist',
     component: Stylist
   },
   
   {
-    path: '/decoratedel/:decoratedelId',
+    path: '/decoratedel',
     component: DecorateDetail
   },
   {
-    path: '/sitedel/:sitedelId',
+    path: '/sitedel',
     component: BuildingSiteDetail
   },
   {
-    path: '/photodel/:photodelId',
+    path: '/photodel',
     component: PhotoDetail
   },
   {
@@ -77,7 +77,7 @@ let index = [
     component: HotProperty
   },
   {
-    path: '/hotprodel/:hotproId',
+    path: '/hotprodel',
     component: HotPropertyDel
   },
   {
@@ -85,7 +85,7 @@ let index = [
     component: Address
   },
   {
-    path: '/addressdel/:addressId',
+    path: '/addressdel',
     component: AddressDel
   },
   {
