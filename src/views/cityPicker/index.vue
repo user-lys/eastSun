@@ -14,10 +14,9 @@
       <div class="current" style="position:relative">当前定位站点</div>
       <div class="quanguoouter">
         <div class="quanguo">
-        <van-icon name="location" class="dingwei" color="#d1b75d" />全国
+        <van-icon name="location" class="dingwei" color="#d1b75d" />{{city}}
       </div>
       </div>
-      
   </div>
   </div>
     <!-- 列表 -->
@@ -28,7 +27,7 @@
           v-for="city in item.data"
           :key="city.cityId"
           :title="city.name"
-          @click="changeCity(city.cityId)"
+          @click="changeCity(city.name)"
         />
       </div>
     </van-index-bar>
@@ -47,10 +46,10 @@ Vue.use(IndexAnchor);
 Vue.use(Cell);
 Vue.use(Icon);
 
-
 export default {
   data() {
     return {
+      city:"全国",
       indexList: [],
       // 城市列表数据包含标题(A)和城市形象
       cityList: [],
@@ -59,10 +58,9 @@ export default {
     };
   },
   methods: {
-    changeCity(cityId) {
-      console.log(cityId);
+    changeCity(cityname) {
+      this.city = cityname;
     },
-
     fanhui() {
       // 返回上一级
       this.$router.go(-1);
@@ -104,6 +102,8 @@ export default {
   },
   created() {
     this.getCityInfos();
+    this.$store.commit('setCurrentCity',this.city);
+    // this.city = ;
   },
 };
 </script>

@@ -65,7 +65,7 @@ export default {
       const shejishiInfo = await getshejishiInfo();
       console.log(shejishiInfo.data.list);
       this.ProcessInfo = shejishiInfo.data.list;
-      this._initSwiper();
+      this._initSwiper() ;
     },
   },
   created() {
