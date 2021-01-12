@@ -33,7 +33,7 @@ export default {
     data() {
       return {
         active: 0,
-        urls: ["/index/stylists", "/wantDecoration", "/mine"],
+        urls: ["/index/stylists", "/want", "/mine"],
       };
     },
     created() {

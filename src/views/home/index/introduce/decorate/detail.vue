@@ -1,5 +1,6 @@
 <template>
   <div>
-    decorate detail page
+    detail page
   </div>
 </template>
+<

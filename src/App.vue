@@ -1,6 +1,7 @@
 <template>
 <div>
   <Header/>
+  
   <router-view class="main"></router-view>
   <Footer/>
 </div>
@@ -20,6 +21,7 @@ export default {
  
 }
 </script>
+
 
 
 
