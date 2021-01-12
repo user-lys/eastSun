@@ -3,3 +3,4 @@
     detail page
   </div>
 </template>
+<
