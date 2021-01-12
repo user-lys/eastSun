@@ -14,20 +14,10 @@
         <h3><i>{{ item.name }}</i> <b><van-icon name="eye-o" />{{ item.views }}</b></h3>
         <p>在施工地 : <i>{{ item.construction_num ?  item.construction_num + "户" : "更新中..."}} </i></p>
         <p>相关案例 :  {{ item.case_num ?  item.case_num + "户" : "更新中..."}}</p>
-        <p>地点： {{item.address}}</p>
+        <p>地点： {{item.address.length > 25 ? item.address.substr(0,25) + '...' : item.address}}</p>
       </div>
     </div>
-
-
-     <div class="loupan">
-      <img src="https:\/\/img.dyrs.cc\/store\/765\/083\/000\/249572085af45846.jpg" alt="">
-      <div class="smallBox">
-        <h3><i>红杉溪谷【北京】</i> <b><van-icon name="eye-o" />20</b></h3>
-        <p>在施工地</p>
-        <p>相关案例</p>
-        <p>地点： 通州区通燕高速，原京哈告诉2号耿庄出口北侧3公里</p>
-      </div>
-    </div>
+    
   </div>
 </template>
 <script>
@@ -46,14 +36,10 @@ export default {
   methods:{
     async getHotPropertys(){
       let ret = await getHotProperty({
-        // ?site_id=1&page=1&pageSize=10&keyword=
         site_id:1,
         page:1,
         pageSize:10
-        
       })
-      // console.log(ret);
-      // console.log(ret.data)
       this.list = ret.data.list
     }
   
@@ -71,8 +57,6 @@ export default {
   }
   .caseFixed{
     background-color: #ffffff;
-    // position: fixed;
-    // top: 0;
     width: 100%;
   }
   .caseHeader h1{
@@ -95,15 +79,18 @@ export default {
     background-color: #ffffff;
     padding: 10px;
     margin-bottom: 3px;
+    font-size: 12px;
   }
   .loupan img{
     width: 40%;
     margin-right: 10px;
+   
   }
   .smallBox h3{
     font-size: 14px;
     display: flex;
     justify-content: space-between;
+    width: 200px;
   }
   .smallBox h3 b{
     font-weight: normal;
