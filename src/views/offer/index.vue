@@ -12,7 +12,7 @@
           </span>
           <span class="sp3" style="font-weight:800;color:black;">装修报价</span>
         </div>
-        <div class="center" style="margin-top:10px;"> 
+        <div class="center"> 
           <img src="../../assets/image/calculate.png" alt="" style="height:200px;width:100%;">
           <h1>快速报价，做好预算更省钱</h1>
         </div>
@@ -55,9 +55,7 @@ export default {
 
 
 <style lang="scss" scoped>
-body{
-  overflow: scroll;
-}
+
 .entire{
   display: flex;
   flex-direction: column;
@@ -67,22 +65,24 @@ body{
    position: relative;
 }
 .header{
-  background: white;
+  width: 100%;
+  background:white;
   height:40px;
+  line-height: 40px;
   position: fixed;
   top:0;
   left:0;
+  bottom:0;
   z-index: 1;
 }
 .header .sp3{
   line-height:1;
   font-size:20px;
-  position: absolute;
-  left:50%;
-  transform: translateX(-50%);
+  margin-left:45px;
 }
 .center{
-  top:55px;
+  margin:0;
+  top:40px;
   position: absolute;
   width:100%;
   height: 200px;
@@ -98,6 +98,7 @@ body{
 
 }
 .content h1{
+  font-size: 20px;
   margin-bottom: 25px;
 }
 .entire .bdy{
@@ -143,8 +144,8 @@ body{
     height: 15px;
     border-radius: 50%;
     position: absolute;
-    left: 1.5px;
-    bottom: 1.5px;
+    left: 0.8px;
+    bottom: 1.1px;
     background-color: rgb(218, 233, 15);
 }
 .inp1 > label{

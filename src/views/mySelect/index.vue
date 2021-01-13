@@ -12,21 +12,21 @@
         <span class="sp3" style="font-weight:800;margin-left:90px;color:black;">我的收藏</span>
       </div>
       <div class="slide">
-        <van-tabs line-width="10px" swipe-threshold=4> 
-          <van-tab title="案例"></van-tab>
-          <van-tab title="设计师"></van-tab>
-          <van-tab title="在线工地"></van-tab>
-          <van-tab title="业主故事"></van-tab>
-          <van-tab title="其他"></van-tab>        
+        <van-tabs line-width="10px" swipe-threshold=4 > 
+          <van-tab title="案例" ellipsis="false"></van-tab>
+          <van-tab title="设计师" ellipsis="false"></van-tab>
+          <van-tab title="在线工地" ellipsis="false"></van-tab>
+          <van-tab title="业主故事" ellipsis="false"></van-tab>
+          <van-tab title="其他" ellipsis="false"></van-tab>        
         </van-tabs>
         <hr/>
       </div>
     </div>
 
     <div class="footer">
-      <van-tabs line-width="10px"  ellipsis=false > 
-          <van-tab title="最近七天"></van-tab>
-          <van-tab title="七天前"></van-tab>  
+      <van-tabs line-width="10px"> 
+          <van-tab title="最近七天" ellipsis=false ></van-tab>
+          <van-tab title="七天前"   ellipsis=false ></van-tab>  
       </van-tabs>
     </div>
   </div>
@@ -53,7 +53,6 @@ export default {
 }
 
 </script>
-
 <style lang="scss" scoped>
   .collect{
     height:100%;
@@ -87,7 +86,6 @@ export default {
     flex:1;
     background: #f7f7f7;
   }
-
   .footer .van-tabs__nav{
     width:150px;
     background: transparent;

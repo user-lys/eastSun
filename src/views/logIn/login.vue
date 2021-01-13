@@ -51,14 +51,17 @@ export default {
     }
   },
 }
+
 </script>
 
 <style lang="scss" scoped>
 .bdy{
-    height:100%;
+    overflow: hidden;
     width:100%;
-    background: url('../../assets/image/beijing.png') no-repeat;
-    background-size:100% 100%;
+	height: 550px;
+	 background: url("../../assets/image/bj.png") no-repeat;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 .form{
     padding-top:30px;
