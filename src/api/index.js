@@ -32,10 +32,29 @@ export const getCityInfo = (params) => {
   return get(url, params)
 }
 
+export const getIndexSwiper = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/subject?site_id=1&page=1&pageSize=8?cors=T&';
+  return get(url, params)
+}
+
+export const getBanner = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/banner?category_ids=3%2C4%2C30?cors=T&';
+  return get(url, params)
+}
+export const getStory = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn//api/owner_story/index?page=1&pageSize=10?cors=T&';
+  return get(url, params)
+}
+export const getOnlineSite = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/construction?site_id=1&page=1&pageSize=2?cors=T&';
+  return get(url, params)
+}
+
 export const getProcessInfo = (params) => {
   let url = 'https://xcx2020.dyrs.com.cn/api/subject?site_id=1';
   return get(url, params)
 }
+
 
 export const getshejishiInfo = (params) => {
   let url = 'https://xcx2020.dyrs.com.cn/api/designer?site_id=1&page=1&pageSize=8';
