@@ -66,18 +66,10 @@ export default {
       console.log(this.$route.params.storyId);
       const storyDel = await getStoryDel({id:this.$route.params.storyId})
       this.storyList = storyDel.data;    
-      console.log(storyDel);
       },
   },
   async created() {
     this.getStoryDels()
-      // const a = await getLogin(
-      //   {
-      //     mobile: '19935340015',
-      //     password: 123456,
-      //   }
-      // ); 
-      // console.log(a);
   }
 }
 </script>

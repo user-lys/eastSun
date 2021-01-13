@@ -17,7 +17,7 @@
     </div>
     <ul>
      
-       <li v-for="item in list" :key="item.id">
+       <li v-for="item in list" :key="item.id" @click="tostory(100887)">
         <img :src="item.avatar" alt="">
         <div class="fixHight">
           <h3>{{item.name}}</h3>
@@ -44,6 +44,10 @@ export default {
     }
   },
   methods:{
+    tostory(id){
+      this.$router.push("stylist/" + id);
+    },
+
     async getTeams(){
       let ret = await getTeam(
         // https://xcx2020.dyrs.com.cn/api/subject?site_id=1page=1&pageSize=10&keyword=&house_area_id=0&house_type_id=0

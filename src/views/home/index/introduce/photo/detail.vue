@@ -53,12 +53,24 @@
 <script>
 import swiper from "swiper"
 import titleBar from '@/components/titleBar/titleBar.vue'
+import { getPhotoDels } from "@/api/index";
 export default {
   components: {
     titleBar
   },
+  
   mounted () {
     var swiper = new Swiper('.swiper-container');   
+  },
+  methods:{
+    async getPhotoDels() {
+      console.log(this.$route.params.photodelId);
+      const photoDel = await getPhotoDels({id:this.$route.params.photodelId})
+          console.log(phoneDel);
+      },
+  },
+  created(){
+    this.getPhotoDels();
   }
 
 }

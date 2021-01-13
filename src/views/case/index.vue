@@ -10,15 +10,13 @@
         <span>面积<i class="iconfont icon-f11-copy"></i></span>
         <span>户型<i class="iconfont icon-f11-copy"></i></span>
         <span>风格<i class="iconfont icon-f11-copy"></i></span>
-
       </div>
-        
     </div>
     <div class="guanggao">
       <img src="https:\/\/imgapp.dyrs.cc\/xcx\/uploads\/20200915\/c2a936a8919154f50f1f691c07668f12.png" alt="">
     </div>
 
-    <div class="caseBox" v-for="item in list" :key="item.id">
+    <div class="caseBox" v-for="item in list" :key="item.id" @click="tozxal(123)">
       <h3>{{item.title}}</h3>
       <p>
         <span>普通住宅|</span>
@@ -82,6 +80,9 @@ export default {
     titleBar,
   },
   methods:{
+    tozxal(id){
+      this.$router.push("casedel/"+id);
+    },
     async getCases(){
       let ret = await getCase({
         // https://xcx2020.dyrs.com.cn/api/subject?site_id=1page=1&pageSize=10&keyword=&house_area_id=0&house_type_id=0
