@@ -25,7 +25,7 @@
     top: 0;
     z-index: 11;
 
-    display: none;
+    // display: none;
   h1 {
     flex: 1;
     margin-top: 5px;

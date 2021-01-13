@@ -39,61 +39,66 @@ import { Tab, Tabs } from 'vant';
 Vue.use(Tab);
 Vue.use(Tabs);
 export default {
+  data () {
+    return {
+      
+    }
+  },
   methods:{
     back(){
       this.$router.go(-1)
-    }
+    },
+
   }
 }
 
 </script>
 
-/* 这里需要删除 scoped ，否则 效果出不来 */
-<style lang="scss" >
-.collect{
-  height:100%;
-  display: flex;
-  flex-direction: column;
-}
-.collec{
-  height:125px;
-  background: white;
-}
-.header{
-  margin-top:30px;
-  width:100%;
-}
-.van-tabs .van-tabs__wrap--scrollable .van-tab{
-    padding:0 23px;
-    font-weight: 700;
-}
-hr{
-  position: absolute;
-  width:80%;
-  margin-left:0;
-  height:7px; 
-  background: #7f7f7f;
-  margin-top:-5px;
-  border:0;
-  border-radius: 5px;
-  display: none;
-}
-.footer{
-  flex:1;
-  background: #f7f7f7;
-}
+<style lang="scss" scoped>
+  .collect{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .collec{
+    height:125px;
+    background: white;
+  }
+  .header{
+    margin-top:30px;
+    width:100%;
+  }
+  .van-tabs .van-tabs__wrap--scrollable .van-tab{
+      padding:0 23px;
+      font-weight: 700;
+  }
+  hr{
+    position: absolute;
+    width:80%;
+    margin-left:0;
+    height:7px; 
+    background: #7f7f7f;
+    margin-top:-5px;
+    border:0;
+    border-radius: 5px;
+    display: none;
+  }
+  .footer{
+    flex:1;
+    background: #f7f7f7;
+  }
 
-.footer .van-tabs__nav{
-  width:150px;
-  background: transparent;
-}
-.footer .van-tab:nth-of-type(1) .van-tab__text{
-  white-space: nowrap;
-  text-emphasis: none;
-  border-right:1px solid black;
-  padding-right:15px;
-}
-.slide:hover hr{
-  display: block;
-}
+  .footer .van-tabs__nav{
+    width:150px;
+    background: transparent;
+  }
+  .footer .van-tab:nth-of-type(1) .van-tab__text{
+    white-space: nowrap;
+    text-emphasis: none;
+    border-right:1px solid black;
+    padding-right:15px;
+  }
+  .slide:hover hr{
+    display: block;
+  }
 </style>
