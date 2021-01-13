@@ -1,5 +1,6 @@
 <template>
   <div class="zuida">
+    <div class="gudingdingweiouter">
     <div class="gudingdingwei">
       <div class="title-warp">
         <div class="left">
@@ -11,19 +12,22 @@
       </div>
       
       <div class="current" style="position:relative">当前定位站点</div>
-      <div class="quanguo">
-        <van-icon name="location" class="dingwei" color="#d1b75d" />全国
+      <div class="quanguoouter">
+        <div class="quanguo">
+        <van-icon name="location" class="dingwei" color="#d1b75d" />{{city}}
+      </div>
       </div>
   </div>
+  </div>
     <!-- 列表 -->
-    <van-index-bar class="listcity" :index-list="indexList">
+    <van-index-bar style="zIndex:999" class="listcity" :index-list="indexList">
       <div v-for="(item, index) in cityList" :key="index">
         <van-index-anchor :index="item.title">{{item.title}}</van-index-anchor>
         <van-cell
           v-for="city in item.data"
           :key="city.cityId"
           :title="city.name"
-          @click="changeCity(city.cityId)"
+          @click="changeCity(city.name)"
         />
       </div>
     </van-index-bar>
@@ -42,10 +46,10 @@ Vue.use(IndexAnchor);
 Vue.use(Cell);
 Vue.use(Icon);
 
-
 export default {
   data() {
     return {
+      city:"全国",
       indexList: [],
       // 城市列表数据包含标题(A)和城市形象
       cityList: [],
@@ -54,10 +58,9 @@ export default {
     };
   },
   methods: {
-    changeCity(cityId) {
-      console.log(cityId);
+    changeCity(cityname) {
+      this.city = cityname;
     },
-
     fanhui() {
       // 返回上一级
       this.$router.go(-1);
@@ -99,11 +102,15 @@ export default {
   },
   created() {
     this.getCityInfos();
+    this.$store.commit('setCurrentCity',this.city);
+    // this.city = ;
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+
 .title-warp {
   display: flex;
   justify-content: center;
@@ -139,16 +146,28 @@ export default {
   font-family: "Courier New", Courier, monospace;
   background-color: white;
 }
+.quanguoouter{
+  width: 100%;
+  height: 35px;
+  background-color: white;
+}
 .quanguo {
   margin-left: 10px;
   font-size: 15px;
   font-family: "Courier New", Courier, monospace;
   width: 80px;
+  height: 35px;
   padding: 5px 10px;
   background-color: #f5f5f5;
 }
 .dingwei {
   line-height: 20px;
+}
+
+.gudingdingweiouter{
+   width: 100%;
+   height: 140px;
+   background-color: white;
 }
 .gudingdingwei{
   width: 100%;
@@ -164,9 +183,5 @@ export default {
   top: 0;
   left: 0;
   z-index: -1;
-  margin-top: 150px;
-}
-.van-cell__title{
-  padding: 20px;
 }
 </style>

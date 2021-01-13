@@ -1,8 +1,8 @@
 <template>
   <div class="main">
-    <van-swipe :autoplay="3000" :touchable="true">
+    <van-swipe :autoplay="3000" :touchable="true" >
       <van-swipe-item v-for="(image, index) in images" :key="index">
-        <img v-lazy="image" />
+        <img :src="image" />
       </van-swipe-item>
     </van-swipe>
 
@@ -29,15 +29,14 @@
     <div class="case">
       <div class="best-works">
         <h2>精选案例</h2>
-        <span class="more">
-          <p>更多</p> >
+        <span @click="go('/case')" class="more">
+          <p>更多&nbsp;></p> 
         </span>
       </div>
-      <van-swipe class="case-swipe" :loop="false" :width="280" indicator-color="white" :touchable="true">
-        <van-swipe-item class="case-swipe-item">1</van-swipe-item>
-        <van-swipe-item class="case-swipe-item">2</van-swipe-item>
-        <van-swipe-item class="case-swipe-item">3</van-swipe-item>
-        <van-swipe-item class="case-swipe-item">4</van-swipe-item>
+      <van-swipe class="case-swipe" :loop="false" :width="300" indicator-color="white" :touchable="true">
+        <van-swipe-item class="case-swipe-item" v-for="(item, index) in caseList" :key="index">
+          <img :src="item"/>
+        </van-swipe-item>
       </van-swipe>
       <router-link tag="div" class="contact" to="#">联系我们</router-link>
       <router-link tag="div" class="call" to="#">
@@ -58,10 +57,10 @@
       </div>
       <div class="server-item-warp">
         <ul>
-          <li><label for=".server-style"></label></li>
-          <li><label for=".server-measuring"></label></li>
-          <li><label for=".server-car"></label></li>
-          <li><label for=".server-knowledge"></label></li>
+          <li><label @click="go('/style')" for=".server-style"><img src="/images/iconImg/瓶子.png" alt=""></label></li>
+          <li><label for=".server-measuring"><img src="/images/iconImg/测量.png" alt=""></label></li>
+          <li><label for=".server-car"><img src="/images/iconImg/专车预约.png" alt=""></label></li>
+          <li><label for=".server-knowledge"><img src="/images/iconImg/房子.png" alt=""></label></li>
         </ul>
         <ol>
           <router-link to="#" tag="li" class="server-style">风格测试</router-link>
@@ -124,20 +123,49 @@
         </ul>
       </div>
       <router-view class="show-tab"></router-view>
-    <div class="case" style="height:260px">
+
+      <cutting></cutting>
+    <div class="case" style="height:280px">
       <div class="best-works">
         <h2>业主故事</h2>
       </div>
-      <van-swipe class="case-swipe" :loop="false" :width="260" :height="150" :show-indicators="false" :touchable="true">
-        <van-swipe-item class="case-swipe-item">1</van-swipe-item>
-        <van-swipe-item class="case-swipe-item">2</van-swipe-item>
-        <van-swipe-item class="case-swipe-item">3</van-swipe-item>
-        <van-swipe-item class="case-swipe-item">4</van-swipe-item>
+      <van-swipe class="case-swipe" :loop="false"  :height="150" :show-indicators="false" :touchable="true">
+          <van-swipe-item  v-for="item in story" :key="item.id">
+            <div class="story-warp">
+              <div class="story-content">
+                <div class="head-icon"><img :src="item.avatar" alt=""></div>
+                <div class="head-content">{{item.add_user}}<p>{{item.style}}</p></div>
+              </div>
+             
+            </div>
+            <div class="story-item">
+               <span class="top-position">
+                <svg t="1610460333902" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" p-id="4641" width="25" height="25">
+                  <path
+                    d="M951.4 275.4V110.8c-352.3 18.6-367.8 439-367.8 439v292.6c0 40.4 33.7 73.2 75.2 73.2h217.3c41.6 0 75.3-32.8 75.3-73.2v-256c0-40.4-33.7-73.2-75.3-73.2h-69.2c-15.8-202.5 144.5-237.8 144.5-237.8zM68.3 549.8v292.6c0 40.4 33.7 73.2 75.2 73.2h217.3c41.6 0 75.3-32.8 75.3-73.2v-256c0-40.4-33.7-73.2-75.3-73.2h-69.2c-15.8-202.4 144.5-237.8 144.5-237.8V110.8c-352.3 18.6-367.8 439-367.8 439z"
+                    p-id="4642"></path>
+                </svg>
+              </span>
+              <div class="story-item-content">{{item.sgz_content}}</div>  
+
+              <span class="bottom-position">
+                <svg t="1610459686709" class="icon " viewBox="0 0 1024 1024" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" p-id="4444" width="25" height="25">
+                  <path
+                    d="M657.834667 957.44l-93.866667-83.285333C689.066667 783.872 755.2 648.533333 762.026667 468.224H585.045333V135.168h333.141334v281.088c0 242.773333-86.613333 423.082667-260.352 541.098667z m-468.394667 0L85.333333 874.069333C210.261333 783.872 276.394667 648.533333 283.221333 468.224H116.650667V135.168h322.56v281.088c0 242.773333-83.2 423.082667-249.770667 541.098667z"
+                    p-id="4445"></path>
+                </svg>
+              </span>
+             
+            </div>
+          </van-swipe-item>
       </van-swipe>
+      <div @click="go('/storys')" class="story-more">查看更多></div>
     </div>
     
     <div class="adv">
-      <img src="" alt="">
+      <img :src="bar" alt="">
     </div>
   </div>
 </template>
@@ -145,6 +173,7 @@
 <script>
   import "@/assets/icon/iconfont.css";
   import Cutting from './components/cutting.vue'
+  import { getIndexSwiper, getBanner, getStory } from "@/api/index";
   import Vue from "vue"
   import {
     Swipe,
@@ -167,6 +196,10 @@
           "/images/swipe/swipe3.jpg",
           "/images/swipe/swipe4.jpg",
         ],
+        caseList:[],
+        story:[],
+        banner:[],
+        bar:"",
         shows: 0,
         tabs:[
           {
@@ -200,26 +233,100 @@
         this.shows = index;
         this.go(this.tabs[index].url);
       },
+      async getIndexSwipers() {
+        let swiper = await getIndexSwiper();
+        swiper = swiper.data.list;
+        swiper.forEach(element => {
+          this.caseList.push(element.title_image);
+        });
+      },
+      async getBanners() {
+        let banners = await getBanner();
+        banners.data.forEach(element => {
+          this.banner.push(element.image);
+        });
+      },
+      async getStorys() {
+        let storys = await getStory();
+        this.story = storys.data.list
+      }
+   
     },
+
     components: {
       Cutting
+    },
+    async created () {
+      this.getIndexSwipers();
+      this.getStorys()
+      await this.getBanners();
+      this.bar = this.banner[Math.floor(Math.random()*this.banner.length)];
+      
     }
   };
 </script>
 <style lang="scss" scoped>
   @import "@/assets/style/mixin.scss";
-
+  img{
+    width: 100%;
+    height: 100%;
+  }
   .main {
-    
     .van-swipe .van-swipe-item {
-      color: #fff;
       font-size: 20px;
-      text-align: center;
       width: 100%;
-      height: 200px;
-      display: block;
-      background: blue;
-
+      .story-warp{
+        margin-left: -50px;
+        .story-content{
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          font-size: 15px;
+          .head-icon{
+            width: 50px;
+            height: 50px;
+            background: #ccc;
+            overflow: hidden;
+            border-radius: 100%;
+          }
+        }
+        .head-content{
+          margin-left: -50px;
+          p{
+            font-size: 12px;
+            color: #ccc;
+          }
+        }
+      }
+      .story-item{
+        font-size: 12px;
+        position: relative;
+        width: 375px;
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .top-position{
+          position: absolute;
+          left: 20px;
+          top: 20px;
+        }
+        .story-item-content{
+          width: 250px;
+          font-size: 14px;
+          color: #666;
+          overflow : hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+        .bottom-position{
+          position: absolute;
+          right: 20px;
+          bottom: 20px;
+        }
+      }
       img {
         width: 100%;
         height: 100%;
@@ -275,10 +382,15 @@
         box-sizing: border-box;
         width: 100%;
         .case-swipe-item {
-          margin: 0 10px;
-          margin-bottom: 10px;
-          border-radius: 2px;
-          box-shadow: #333 -5px 5px 10px -5px;
+          img{
+            width: 280px;
+            height: 186px;
+            margin: 0 10px;
+            margin-bottom: 10px;
+            border-radius: 2px;
+            box-shadow: #333 -5px 5px 10px -5px;
+          }
+          
         }
       }
 
@@ -322,6 +434,18 @@
             border-radius: 100%;
             box-shadow: 0 0 20px #cccccc;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            label{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              img{
+                width: 25px;
+                height: 25px;
+              }
+            }
           }
         }
         ol{
@@ -456,8 +580,14 @@
       
     }
     .show-tab{
-        width: 100%;
-      }
-    
+      width: 100%;
+    }
+    .story-more{
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      color: #ccc;
+      margin: 10px 0;
+    }
   }
 </style>

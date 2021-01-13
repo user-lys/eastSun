@@ -8,14 +8,13 @@ export default new Vuex.Store({
   state: {
   //   // 控制底部的导航是否显示
   //   isShowFooter: true,
-
+    currentCity: "全国",
   },
   mutations: {
-  //   // 设置是否显示底部的操作
-  //   setFooter(state,arg){
-  //     // 修改isShowFooter的值
-  //     state.isShowFooter = arg;
-  //   },
+    setCurrentCity(state,arg){
+      // 修改currentCity的值
+      state.currentCity = arg; 
+    }
   },
   actions: {},
   modules: {},

@@ -39,15 +39,20 @@ import { Tab, Tabs } from 'vant';
 Vue.use(Tab);
 Vue.use(Tabs);
 export default {
+  data () {
+    return {
+      
+    }
+  },
   methods:{
     back(){
       this.$router.go(-1)
-    }
+    },
+
   }
 }
 
 </script>
-
 <style lang="scss" scoped>
 .header1{
   padding-top:15px;
@@ -84,5 +89,4 @@ hr{
 .collect .footeer .van{
   width:150px;
 }
-
 </style>
