@@ -90,8 +90,7 @@ export default {
 
 <style lang="scss" scoped>
   .wrap{
-    display: flex;
-    flex-direction: column;
+    padding-top:0;
   }
   .back{
     width:100%;
@@ -99,17 +98,17 @@ export default {
     background:linear-gradient( 180deg,	DimGray 0,black 45%);
   }
   .wrap .center{
-    flex:1;
-    background: #7f7f7f;
+    background: #f7f7f7;
     position: relative;
-  
+    height:500px;
   }
   .white{
     width: 80%;
-    height:160px;
+    height:180px;
     background: white;
     top:-80px;
-    margin-left: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
   }
   .img{
@@ -130,7 +129,7 @@ export default {
   position: absolute;
    left:50%;
    transform: translateX(-50%);
-  top:60px;
+  top:40px;
 
   }
   .h2 > a{
@@ -154,11 +153,10 @@ export default {
 
   .list{
     width: 80%;
-
+    position: absolute;
     background: #ffffff;
-    margin-top:100px;
-    margin-bottom:30px;
-    margin-left:10%;
+    margin-top:140px;
+    
   }
   ul > li{
     padding:15px 20px;
@@ -194,4 +192,5 @@ export default {
     margin-right:10px;
     font-size: 18px;
   }
+
 </style>

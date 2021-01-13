@@ -13,7 +13,7 @@
           <span class="sp3" style="font-weight:800;color:black;">装修报价</span>
         </div>
         <div class="center"> 
-          <img src="../../assets/image/calculate.png" alt="" style="height:200px;width:100%;">
+          <img src="../../assets/image/calculate.png" alt="" style="height:100%;width:100%;display:block;">
           <h1>快速报价，做好预算更省钱</h1>
         </div>
      </div>
@@ -31,7 +31,7 @@
             <input type="text" placeholder="我家的面积 输入面积，快速报价"><span class="span2">m<sup>2</sup></span>
             <input type="button" value="立即获取报价">
           </div>
-          <div class="phone">
+          <div class="phone1">
             <span>
               <img src="../../assets/image/dianhua.png" alt="">
             </span>
@@ -59,6 +59,9 @@ export default {
 .entire{
   display: flex;
   flex-direction: column;
+  padding:0;
+  padding-bottom:50px;
+  box-sizing: border-box;
 }
 .entire .head{
   height:260px;
@@ -70,9 +73,6 @@ export default {
   height:40px;
   line-height: 40px;
   position: fixed;
-  top:0;
-  left:0;
-  bottom:0;
   z-index: 1;
 }
 .header .sp3{
@@ -85,7 +85,7 @@ export default {
   top:40px;
   position: absolute;
   width:100%;
-  height: 200px;
+  height: 220px;
 
 }
 .center h1{
@@ -105,13 +105,14 @@ export default {
   flex:1;
   padding:20px;
   background:#f7f7f7;
+  box-sizing: border-box;
 }
 .bdy .content{
   width:100%;
-  height:100%;
   background: white;
   text-align: center;
   padding-top:20px;
+  box-sizing: border-box;
 }
 .radioBox input{
    display: none;
@@ -187,7 +188,10 @@ export default {
   background: black;
   border:0;
 }
-.phone > span > img{
+.phone1{
+ height:40px;
+}
+.phone1 > span > img{
   width:15px;
   height:15px;
 }
