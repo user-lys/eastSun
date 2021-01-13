@@ -2,11 +2,9 @@
   <div class="main">
     <erji></erji>
     <phone></phone>
-
-
     <Header></Header>
     <van-swipe :autoplay="3000" :touchable="true" >
-      <van-swipe-item v-for="(image, index) in images" :key="index">
+      <van-swipe-item v-for="(image, index) in banner" :key="index">
         <img :src="image" />
       </van-swipe-item>
     </van-swipe>
@@ -176,6 +174,7 @@
 </template>
 
 <script>
+  import Header from "@/components/Navigation/headerBar.vue";
   import "@/assets/icon/iconfont.css";
   import Cutting from './components/cutting.vue'
   import { getIndexSwiper, getBanner, getStory } from "@/api/index";
@@ -201,12 +200,6 @@ import phone from "@/components/rightPublic/phone";
       return {
         path: "",
         top: 0,
-        images: [
-          "/images/swipe/swipe1.jpg",
-          "/images/swipe/swipe2.jpg",
-          "/images/swipe/swipe3.jpg",
-          "/images/swipe/swipe4.jpg",
-        ],
         caseList:[],
         story:[],
         banner:[],
@@ -258,16 +251,18 @@ import phone from "@/components/rightPublic/phone";
         });
       },
       async getBanners() {
-        let banners = await getBanner();
-        banners.data.forEach(element => {
-          this.banner.push(element.image);
+        let _banners = await getBanner();
+        let banners = [];
+        _banners.data.forEach(element => {
+          banners.push(element.image);
         });
+        this.banner = banners.slice(0,6)
+        this.bar = banners[6];
       },
       async getStorys() {
         let storys = await getStory();
         this.story = storys.data.list
-      }
-   
+      },
     },
 
     components: {
@@ -297,7 +292,6 @@ import phone from "@/components/rightPublic/phone";
       this.getIndexSwipers();
       this.getStorys()
       await this.getBanners();
-      this.bar = this.banner[Math.floor(Math.random()*this.banner.length)];
       
     }
   };
