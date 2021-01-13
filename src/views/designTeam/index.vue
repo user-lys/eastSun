@@ -87,8 +87,9 @@ export default {
     display: flex;
     justify-content: space-between;
   }
-  .guanggao img{
+  img{
     width: 100%;
+    height: 180px;
   }
   .guanggao{
     margin: 10px 0 10px 0;

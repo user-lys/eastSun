@@ -6,7 +6,7 @@
       <h1>{{ list.title }}</h1>
       <div v-html="list.content" class="showBox">
       </div>
-      </div>
+    </div>
     
   </div>
 </template>
@@ -23,22 +23,22 @@ export default {
   methods:{
     async getDecorateDetails(){
       let ret = await getDecorateDetail()
-      // console.log(ret);
-      // console.log(ret.data)
       this.list = ret.data
     }
-  
   },
  created(){
     this.getDecorateDetails()
-    
   }
 }
 </script>
-<style lang="scss" scoped>
-  
+<style lang="scss" scoped> 
   .smallShowBox{
     width: 90%;
     margin: 0 auto;
+  }
+  h1{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
   }
 </style>
