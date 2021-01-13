@@ -69,6 +69,8 @@
 <script>
 import Vue from 'vue';
 import { ImagePreview } from 'vant';
+import { mapMutations } from "vuex"
+
 
 // 全局注册
 Vue.use(ImagePreview);
@@ -79,10 +81,29 @@ export default {
      }
    },
    methods:{
+     ...mapMutations(["setFooter"]),
      jump(){
        this.$router.push("/mine/price")
-     }
+     },
+     
+   },
+   created(){
+     this.setFooter(true);
+   },
+   beforeDestroy(){
+     const str = window.location.href.split("#")[1];
+    //  this.setFooter(false);
+    if(str == "/mine"){
+        this.setFooter(true);
+      }else if(str == "/want"){
+        this.setFooter(true);
+      }else if(str == "/index/stylists"){
+        this.setFooter(true);
+      }else{
+         this.setFooter(false);
+      }
    }
+   
 }
 </script>
 

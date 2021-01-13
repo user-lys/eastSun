@@ -146,6 +146,8 @@
   import "@/assets/icon/iconfont.css";
   import Cutting from './components/cutting.vue'
   import Vue from "vue"
+  // 导入map系列方法
+  import {mapMutations} from "vuex";
   import {
     Swipe,
     IconSwipe,
@@ -161,6 +163,8 @@
   export default {
     data() {
       return {
+        path: "",
+        top: 0,
         images: [
           "/images/swipe/swipe1.jpg",
           "/images/swipe/swipe2.jpg",
@@ -191,6 +195,12 @@
       };
     },
     methods: {
+      ...mapMutations({
+        setFooter:"setFooter",
+        getCurrentPath:"getCurrentPath"
+        }),
+      
+
       go(url) {
         this.$router.push({
           path: url
@@ -203,7 +213,34 @@
     },
     components: {
       Cutting
-    }
+    },
+    created(){
+      this.setFooter(true);
+    },
+    mounted(){
+        // const str = window.location.href.split("#")[1];
+        // this.path = str;
+    },
+  
+    beforeDestroy(){
+      
+      const sessionTop = document.documentElement.scrollTop;
+      const str = window.location.href.split("#")[1];
+      this.getCurrentPath([this.path,sessionTop]);
+      // 告诉根组件让footer消失
+      // this.setFooter(false);
+
+      // 判断路径对不对如果路径为/want和 /mine 就让底部显示否则隐藏
+      if(str == "/mine"){
+        this.setFooter(true);
+      }else if(str == "/want"){
+        this.setFooter(true);
+      }else if(str == "/index/stylists"){
+        this.setFooter(true);
+      }else{
+         this.setFooter(false);
+      }
+    },
   };
 </script>
 <style lang="scss" scoped>

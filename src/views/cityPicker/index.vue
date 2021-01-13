@@ -59,7 +59,9 @@ export default {
   },
   methods: {
     changeCity(cityname) {
+      this.$store.commit('setCurrentCity',cityname);
       this.city = cityname;
+      this.$router.push("/");
     },
     fanhui() {
       // 返回上一级
@@ -72,7 +74,6 @@ export default {
     // 发送请求
     async getCityInfos() {
       const citydate = await getCityInfo();
-      console.log(citydate);
       if (citydate.status == 0) {
         // console.log(citydate.data.cities);
         // 生成26个字母
@@ -103,7 +104,6 @@ export default {
   created() {
     this.getCityInfos();
     this.$store.commit('setCurrentCity',this.city);
-    // this.city = ;
   },
 };
 </script>
@@ -166,7 +166,7 @@ export default {
 
 .gudingdingweiouter{
    width: 100%;
-   height: 140px;
+   height: 100px;
    background-color: white;
 }
 .gudingdingwei{

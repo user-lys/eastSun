@@ -22,7 +22,6 @@ let login = [
     path: '/mine',
     component: Mine
   },
-
 ]
 
 export default login

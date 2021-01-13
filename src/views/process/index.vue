@@ -129,9 +129,6 @@ export default {
   created() {
     this.getProcessInfos();
   },
-  mounted() {
-    // this._initSwiper();
-  },
 };
 </script>
 <style lang="scss" scoped>

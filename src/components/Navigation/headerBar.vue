@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <div>
-        <router-link to="/city" tag="div" id="city">全国</router-link>
+        <router-link to="/city" tag="div" id="city">{{this.$store.state.currentCity}}</router-link>
         <label for="#city" class="icon"></label>
       </div>
       <h1>
@@ -11,6 +11,27 @@
     </div>
   </div>
 </template>
+
+<script>
+// import from
+import store from "vuex";
+
+export default {
+  // data:{
+  //   currentCity: "全国",
+  // },
+  mounted(){
+    window.onscroll = () => {
+      console.log(123);
+    }
+  },
+  computed:{
+    currentCity(){
+      return store.state.currentCity;
+    }
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 .header {
@@ -25,7 +46,7 @@
     top: 0;
     z-index: 11;
 
-    display: none;
+    // display: none;
   h1 {
     flex: 1;
     margin-top: 5px;
