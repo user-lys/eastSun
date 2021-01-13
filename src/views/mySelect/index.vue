@@ -2,14 +2,14 @@
   <div class="collect">
     <div class="collec">
     <!-- myselect page 收藏页面 -->
-      <div class="header" >
+      <div class="header1" >
         <span class="sp1" @click="back">
             <img src="../../assets/image/xiaoyuhao1.png" alt="" style="width:30px;margin-left:10px;">
         </span>
         <span class="sp2">
             <img src="../../assets/image/fangzi1.png" alt="" style="width:30px;margin-left:20px;">
         </span>
-        <span class="sp3" style="font-weight:800;margin-left:90px;color:black;">我的收藏</span>
+        <span class="sp3" style="font-weight:800;color:black;margin-left:80px;">我的收藏</span>
       </div>
       <div class="slide">
         <van-tabs line-width="10px" swipe-threshold=4 > 
@@ -23,10 +23,10 @@
       </div>
     </div>
 
-    <div class="footer">
-      <van-tabs line-width="10px"> 
-          <van-tab title="最近七天" ellipsis=false ></van-tab>
-          <van-tab title="七天前"   ellipsis=false ></van-tab>  
+    <div class="footeer">
+      <van-tabs line-width="10px" class="van" background="transparent"> 
+          <van-tab title="最近七天" ellipsis=false></van-tab>
+          <van-tab title="七天前"   ellipsis=false></van-tab>  
       </van-tabs>
     </div>
   </div>
@@ -39,32 +39,37 @@ import { Tab, Tabs } from 'vant';
 Vue.use(Tab);
 Vue.use(Tabs);
 export default {
+  data () {
+    return {
+      
+    }
+  },
   methods:{
     back(){
       this.$router.go(-1)
-    }
+    },
+
   }
 }
 
 </script>
-
-/* 这里需要删除 scoped ，否则 效果出不来 */
 <style lang="scss" scoped>
-.collect{
-  height:100%;
-  display: flex;
-  flex-direction: column;
+.header1{
+  padding-top:15px;
 }
 .collec{
-  height:125px;
-  background: white;
+  height:100px;
+  overflow:hidden;
 }
-.header{
-  margin-top:30px;
-  width:100%;
+
+.collect{
+  height:100px;
+  margin-bottom:15px;
+  background: white;
+  padding-top:0;
 }
 .van-tabs .van-tabs__wrap--scrollable .van-tab{
-    padding:0 23px;
+    padding:0;
     font-weight: 700;
 }
 hr{
@@ -78,22 +83,10 @@ hr{
   border-radius: 5px;
   display: none;
 }
-.footer{
-  flex:1;
-  background: #f7f7f7;
-}
-
-.footer .van-tabs__nav{
-  width:150px;
-  background: transparent;
-}
-.footer .van-tab:nth-of-type(1) .van-tab__text{
-  white-space: nowrap;
-  text-emphasis: none;
-  border-right:1px solid black;
-  padding-right:15px;
-}
 .slide:hover hr{
   display: block;
+}
+.collect .footeer .van{
+  width:150px;
 }
 </style>

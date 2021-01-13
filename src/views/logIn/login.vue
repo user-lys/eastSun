@@ -56,6 +56,7 @@ export default {
 
 <style lang="scss" scoped>
 .bdy{
+    padding:0px;
     overflow: hidden;
     width:100%;
 	height: 550px;
@@ -95,7 +96,7 @@ export default {
     letter-spacing: 1px;
     font-size: 30px;
     position: absolute;
-    top:150px;
+    top:120px;
     left:50%;
     transform: translateX(-50%);
 }

@@ -16,6 +16,7 @@ import Address from "@/views/address"
 import AddressDel from "@/views/address/detail"
 import StyleTest from "@/views/styleTest"
 import Process from "@/views/process"
+import Storys from "@/views/story/storys"
 import Story from "@/views/story"
 import City from "@/views/cityPicker"
 
@@ -95,6 +96,10 @@ let index = [
   {
     path: '/process',
     component: Process
+  },
+  {
+    path: '/storys',
+    component: Storys
   },
   {
     path: '/story/:storyId',

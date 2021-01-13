@@ -1,16 +1,37 @@
 <template>
   <div class="index-warp">
-   <div class="site-warp">
-     <img src="" alt="">
-     <div class="site-content">
-       <h4>是梵蒂冈是否大风十大范德萨发</h4>
-       <div>装修风格:<span></span></div>
-       <div>户型:<span></span>面积:<span></span> </div>
-     </div>
-   </div>
-   <div class="site-more"><span>查看更多></span> </div>
+    <div class="site-warp" v-for="item in onlineSite" :key="item.id">
+      <img :src="item.cover_image" alt="">
+      <div class="site-content">
+        <h4>{{item.title}}</h4>
+        <div>装修风格:<span>{{item.housestyle.name}}</span></div>
+        <div>户型:<span>{{item.housetype.name}}</span>面积:<span>{{item.area}}平米</span> </div>
+      </div>
+    </div>
+   <router-link tag="div" to="/storys" class="site-more"><span>查看更多></span> </router-link>
   </div>
 </template>
+
+<script>
+import {getOnlineSite} from '@/api/index'
+export default {
+  data () {
+    return {
+      onlineSite:[],
+    }
+  },
+  methods: {
+    async getOnlineSites() {
+      let ret = await getOnlineSite();
+      this.onlineSite = ret.data.list;
+    }
+  },
+  created () {
+    this.getOnlineSites();
+  }
+
+}
+</script>
 
 <style lang="scss" scoped>
 .index-warp{
