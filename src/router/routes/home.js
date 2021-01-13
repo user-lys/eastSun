@@ -45,7 +45,7 @@ let index = [
     ]
   },
   {
-    path: '/stylist',
+    path: '/stylist/:stylistId',
     component: Stylist
   },
   
@@ -66,7 +66,7 @@ let index = [
     component: Case
   },
   {
-    path: '/case/detail',
+    path: '/case/:caseId',
     component: Casedel
   },
   {

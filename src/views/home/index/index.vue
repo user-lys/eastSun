@@ -35,8 +35,8 @@
         </span>
       </div>
       <van-swipe class="case-swipe" :loop="false" :width="300" indicator-color="white" :touchable="true">
-        <van-swipe-item class="case-swipe-item" v-for="(item, index) in caseList" :key="index">
-          <img :src="item"/>
+        <van-swipe-item  class="case-swipe-item" v-for="(item, index) in caseList" @click="go('/case/'+item.subject_id)" :key="index">
+          <img :src="item.title_image"/>
         </van-swipe-item>
       </van-swipe>
       <router-link tag="div" class="contact" to="#">联系我们</router-link>
@@ -239,8 +239,9 @@
         let swiper = await getIndexSwiper();
         swiper = swiper.data.list;
         swiper.forEach(element => {
-          this.caseList.push(element.title_image);
+          this.caseList.push(element);
         });
+        console.log(this.caseList);
       },
       async getBanners() {
         let _banners = await getBanner();
