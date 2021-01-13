@@ -1,9 +1,8 @@
 <template>
 <div>
-  <Header/>
-  
+  <Header></Header>
   <router-view class="main"></router-view>
-  <Footer/>
+  <Footer v-show="isShow"></Footer>
 </div>
 </template>
 
@@ -17,8 +16,12 @@ export default {
   components: {
     Header,
     Footer,
-  }
- 
+  },
+  computed: {
+    isShow(){
+      return this.$store.state.isShowFooter;
+    }
+  },
 }
 </script>
 

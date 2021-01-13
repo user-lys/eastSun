@@ -11,7 +11,6 @@
           <img src="../../../assets/want/woyaozhuanxiu.png" alt="" />
         </div>
       </div>
-
       <div class="footer">
         <p>
           <img src="../../../assets/want/touxiang.png" alt="" />
@@ -35,11 +34,34 @@
 <script>
   import erji from "@/components/rightPublic/erji"
   import phone from "@/components/rightPublic/phone"
+  import { mapMutations} from 'vuex'
 
 export default {
   components:{
     erji,
     phone,
+  },
+  methods:{
+      ...mapMutations({
+        setFooter:"setFooter",
+        getCurrentPath:"getCurrentPath"
+        }),
+  },
+  created(){
+    this.setFooter(true);
+  },
+  beforeDestroy(){
+    const str = window.location.href.split("#")[1];
+    // this.setFooter(false);
+    if(str == "/mine"){
+        this.setFooter(true);
+      }else if(str == "/want"){
+        this.setFooter(true);
+      }else if(str == "/index/stylists"){
+        this.setFooter(true);
+      }else{
+         this.setFooter(false);
+      }
   }
 };
 </script>

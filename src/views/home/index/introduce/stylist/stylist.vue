@@ -5,10 +5,10 @@
         <div
           class="swiper-slide"
           v-for="(item, index) in ProcessInfo"
-          :key="index" style="height: 330px
+          :key="index" style="height: px
           "
         >
-          <div class="img">
+          <div class="img" style="margin-bottom:0px">
             <img :src="item.avatar" alt="" />
           </div>
           <h3>{{item.name}}</h3>
@@ -74,7 +74,7 @@ export default {
 <style lang="scss">
 .swiper-container {
   width: 100%;
-  height: 370px;
+  height: 350px;
   margin: 0px auto;
   background-color: #f7f7f7;
 }
@@ -102,11 +102,11 @@ export default {
       border: 1px solid black;
     }
   }
-  margin: 5px 10px;
+  margin: 5px 0px;
   font-size: 18px;
   background: #fff;
   width: 170px;
-  height: 250px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   display: -webkit-box;
@@ -121,10 +121,5 @@ export default {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-}
-</style>
-<style lang="scss" scoped>
-div{
-  margin-bottom: 100px;
 }
 </style>
