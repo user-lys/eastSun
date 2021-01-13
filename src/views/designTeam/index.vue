@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="caseFixed">
-      <div class="caseHeader"><h1>设计团队</h1></div>
+      <!-- <div class="caseHeader"><h1>设计团队</h1></div> -->
+      <titleBar><div>设计团队</div></titleBar>
       <van-search v-model="value" shape="round" placeholder="请输入您要搜索的内容" />
       <div class="classify">
         <span>北京<i class="iconfont icon-f11-copy"></i></span>
@@ -26,13 +27,16 @@
         </div>
         <button>找TA设计</button>
       </li>
-
     </ul>
   </div>
 </template>
 <script>
+import titleBar from "@/components/titleBar/titleBar"
 import { getTeam } from '@/api/index.js'
 export default {
+  components:{
+    titleBar,
+  },
   data() {
     return {
       value:'',

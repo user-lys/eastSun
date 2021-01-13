@@ -1,8 +1,10 @@
 <template>
   <div class="entire">
     <!-- offer page -->
+    <erji></erji>
+    <phone></phone>
      <div class="head">
-       <div class="header" >
+       <!-- <div class="header" >
           <span class="sp1" @click="back">
               <img src="../../assets/image/xiaoyuhao1.png" alt="" style="width:25px;margin-left:10px;">
           </span>
@@ -11,7 +13,8 @@
               <img src="../../assets/image/fangzi1.png" alt="" style="width:25px;margin-left:10px;">
           </span>
           <span class="sp3" style="font-weight:800;color:black;">装修报价</span>
-        </div>
+        </div> -->
+        <titleBar><div>装修报价</div></titleBar>
         <div class="center"> 
           <img src="../../assets/image/calculate.png" alt="" style="height:100%;width:100%;display:block;">
           <h1>快速报价，做好预算更省钱</h1>
@@ -44,11 +47,22 @@
 </template>
 
 <script>
+import titleBar from "@/components/titleBar/titleBar"
+import erji from "@/components/rightPublic/erji";
+import phone from "@/components/rightPublic/phone";
+import Phone from '../../components/rightPublic/phone.vue';
 export default {
   methods:{
     back(){
       this.$router.go(-1)
     }
+  },
+  components:{
+    titleBar,
+    Phone,
+    erji,
+    phone
+
   }
 }
 </script>
@@ -60,7 +74,6 @@ export default {
   display: flex;
   flex-direction: column;
   padding:0;
-  padding-bottom:50px;
   box-sizing: border-box;
 }
 .entire .head{

@@ -45,7 +45,7 @@ let index = [
     ]
   },
   {
-    path: '/stylist',
+    path: '/stylist/:stylistId',
     component: Stylist
   },
   

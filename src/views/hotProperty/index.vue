@@ -1,7 +1,8 @@
 <template>
   <div class="bigBox">
      <div class="caseFixed">
-      <div class="caseHeader"><h1>热装楼盘</h1></div>
+      <!-- <div class="caseHeader"><h1>热装楼盘</h1></div> -->
+      <titleBar><div>热门楼盘</div></titleBar>
       <van-search v-model="value" shape="round" placeholder="请输入您要搜索的内容" />
     </div>
     <div class="guanggao">
@@ -23,7 +24,7 @@
 <script>
 import Vue from 'vue';
 import { Icon } from 'vant';
-
+import titleBar from "@/components/titleBar/titleBar"
 Vue.use(Icon);
 import { getHotProperty } from '@/api/index.js'
 export default {
@@ -32,6 +33,9 @@ export default {
       value:'',
       list: []
     }
+  },
+  components:{
+    titleBar,
   },
   methods:{
     async getHotPropertys(){

@@ -32,6 +32,8 @@ export default new Vuex.Store({
       // state.CurrentTop = arg1;
       sessionStorage.setItem("currentTop",arg1);
     },
+    
+    
 
 
   },

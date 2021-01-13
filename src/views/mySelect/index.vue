@@ -1,8 +1,9 @@
 <template>
   <div class="collect">
     <div class="collec">
+    <titleBar><div>我的收藏</div></titleBar>
     <!-- myselect page 收藏页面 -->
-      <div class="header1" >
+      <!-- <div class="header1" >
         <span class="sp1" @click="back">
             <img src="../../assets/image/xiaoyuhao1.png" alt="" style="width:30px;margin-left:10px;">
         </span>
@@ -10,8 +11,11 @@
             <img src="../../assets/image/fangzi1.png" alt="" style="width:30px;margin-left:20px;">
         </span>
         <span class="sp3" style="font-weight:800;color:black;margin-left:80px;">我的收藏</span>
-      </div>
-      <div class="slide">
+      </div> -->
+      
+      
+    </div>
+  <div class="slide">
         <van-tabs line-width="10px" swipe-threshold=4 > 
           <van-tab title="案例" ellipsis="false"></van-tab>
           <van-tab title="设计师" ellipsis="false"></van-tab>
@@ -21,8 +25,6 @@
         </van-tabs>
         <hr/>
       </div>
-    </div>
-
     <div class="footeer">
       <van-tabs line-width="10px" class="van" background="transparent"> 
           <van-tab title="最近七天" ellipsis=false></van-tab>
@@ -35,15 +37,13 @@
 <script>
 import Vue from 'vue';
 import { Tab, Tabs } from 'vant';
-
+ import titleBar from "@/components/titleBar/titleBar"
 Vue.use(Tab);
 Vue.use(Tabs);
 export default {
-  data () {
-    return {
-      
-    }
-  },
+ components:{
+   titleBar,
+ },
   methods:{
     back(){
       this.$router.go(-1)
@@ -58,7 +58,7 @@ export default {
   padding-top:15px;
 }
 .collec{
-  height:100px;
+  height:50px;
   overflow:hidden;
 }
 

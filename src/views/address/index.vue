@@ -1,7 +1,8 @@
 <template>
   <div class="bigBox">
      <div class="caseFixed">
-      <div class="caseHeader"><h1>线下门店</h1></div>
+      <!-- <div class="caseHeader"><h1>线下门店</h1></div> -->
+      <titleBar><div>线下门店</div></titleBar>
       <div class="guanggao">
       <img src="https:\/\/imgapp.dyrs.cc\/xcx\/uploads\/20200915\/c2a936a8919154f50f1f691c07668f12.png" alt="">
     </div>
@@ -28,7 +29,7 @@
 <script>
 import Vue from 'vue';
 import { Icon } from 'vant';
-
+import titleBar from "@/components/titleBar/titleBar"
 Vue.use(Icon);
 import { getAddress } from '@/api/index.js'
 export default {
@@ -37,6 +38,9 @@ export default {
       value:'',
       list: []
     }
+  },
+  components:{
+    titleBar,
   },
   methods:{
     async getAddresss(){
