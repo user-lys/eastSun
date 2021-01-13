@@ -67,5 +67,22 @@ export const getPhotoInfo = (params) => {
 }
 
 
+export const getStoryDel = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn//api/owner_story/details';
+  return get(url, params)
+}
+
+export const getLogin = (params) => {
+  let url = 'http://127.0.0.1:2004/backend/login';
+  return post(url, params)
+}
+
+
+
+export const getStoryjj = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/designer/details';
+  return get(url, params)
+}
+
 
 

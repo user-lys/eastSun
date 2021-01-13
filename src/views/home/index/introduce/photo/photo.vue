@@ -5,7 +5,7 @@
         <div
           class="swiper-slide"
           v-for="(item, index) in ProcessInfo"
-          :key="index" style="height: 320px
+          :key="index" style="height: 220px
           "
         >
           <div class="img">
@@ -69,7 +69,7 @@ export default {
   width: 100%;
   height: 250px;
   margin: 0px auto;
-  background-color: #f7f7f7;
+  // background-color: #f7f7f7;
 }
 .swiper-slide {
   .img{
@@ -84,12 +84,11 @@ export default {
   font-size: 18px;
   background: #fff;
   width: 260px;
-  height: 220px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   // background-color: white;
 
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;

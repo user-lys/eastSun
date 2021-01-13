@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="title-warp">
+  <div class="main" style="padding:0px">
+    <div class="title-warp" >
       <back />
       <div class="title">裝修流程</div>
       <home />
@@ -151,6 +151,7 @@ export default {
     position: fixed;
   }
 }
+
 
 .xiazhengti {
   z-index: -1;

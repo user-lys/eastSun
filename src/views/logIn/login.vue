@@ -1,15 +1,7 @@
 <template>
     <div class="bdy">
         <van-form @submit="onSubmit" class="form">
-            <div calss="header" >
-                <span class="sp1" @click="back">
-                    <img src="../../assets/image/xiaoyuhao.png" alt="" style="width:30px;margin-left:10px;">
-                </span>
-                <span class="sp2">
-                    <img src="../../assets/image/fangzi.png" alt="" style="width:30px;margin-left:20px;">
-                </span>
-                <span class="sp3" style="font-weight:800;margin-left:90px;color:#ffffff;">登录</span>
-            </div>
+            <titleBar><div>登录</div></titleBar>
             <div class="text">
                 <h1>东易日盛装饰</h1>
             </div>
@@ -33,7 +25,7 @@
 <script>
 import Vue from 'vue';
 import { Form,} from 'vant';
-
+ import titleBar from "@/components/titleBar/titleBar"
 Vue.use(Form);
 export default {
     data() {
@@ -50,6 +42,9 @@ export default {
         this.$router.go(-1)
     }
   },
+  components:{
+      titleBar,
+  }
 }
 
 </script>
@@ -96,6 +91,7 @@ export default {
     letter-spacing: 1px;
     font-size: 30px;
     position: absolute;
+    width: 200px;
     top:120px;
     left:50%;
     transform: translateX(-50%);
