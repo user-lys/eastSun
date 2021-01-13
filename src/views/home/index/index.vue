@@ -177,6 +177,8 @@
   import Cutting from './components/cutting.vue'
   import { getIndexSwiper, getBanner, getStory } from "@/api/index";
   import Vue from "vue"
+  // 导入map系列方法
+  import {mapMutations} from "vuex";
   import {
     Swipe,
     IconSwipe,
@@ -192,12 +194,8 @@
   export default {
     data() {
       return {
-        // images: [
-        //   "/images/swipe/swipe1.jpg",
-        //   "/images/swipe/swipe2.jpg",
-        //   "/images/swipe/swipe3.jpg",
-        //   "/images/swipe/swipe4.jpg",
-        // ],
+        path: "",
+        top: 0,
         caseList:[],
         story:[],
         banner:[],
@@ -226,6 +224,12 @@
       };
     },
     methods: {
+      ...mapMutations({
+        setFooter:"setFooter",
+        getCurrentPath:"getCurrentPath"
+        }),
+      
+
       go(url) {
         this.$router.push({
           path: url
@@ -261,7 +265,25 @@
       Cutting,
       Header
     },
+
+    beforeDestroy(){
+      
+      const sessionTop = document.documentElement.scrollTop;
+      const str = window.location.href.split("#")[1];
+      this.getCurrentPath([this.path,sessionTop]);
+      if(str == "/mine"){
+        this.setFooter(true);
+      }else if(str == "/want"){
+        this.setFooter(true);
+      }else if(str == "/index/stylists"){
+        this.setFooter(true);
+      }else{
+         this.setFooter(false);
+      }
+    },
     async created () {
+      this.setFooter(true);
+    
       this.getIndexSwipers();
       this.getStorys()
       await this.getBanners();

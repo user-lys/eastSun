@@ -15,7 +15,7 @@ const routes = [
   ...homeRouter,
   ...wantRouter,
   ...mineRouter,
-
+  
 ];
 const router = new VueRouter({
   routes
