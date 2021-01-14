@@ -49,6 +49,14 @@ export const getOnlineSite = (params) => {
   let url = 'https://xcx2020.dyrs.com.cn/api/construction?site_id=1&page=1&pageSize=2?cors=T&';
   return get(url, params)
 }
+export const getCaseDel = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/subject/details?';
+  return get(url, params)
+}
+export const getAdv = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/banner?category_ids=6';
+  return get(url, params)
+}
 
 export const getProcessInfo = (params) => {
   let url = 'https://xcx2020.dyrs.com.cn/api/subject?site_id=1';
