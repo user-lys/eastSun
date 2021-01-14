@@ -12,17 +12,7 @@ module.exports = {
         target: "https://wx.maoyan.com",
         changeOrigin: true,
       },
-      "/api": {
-        target: "http://localhost:4010",
-        changeOrigin: true,
-        // pathRewrite: {
-        //   '^/api': ''
-        // }
-      },
-      "/ajax": {
-        target: "https://m.maoyan.com",
-        changeOrigin: true,
-      },
+      
     },
   },
 

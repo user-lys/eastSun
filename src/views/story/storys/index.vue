@@ -1,5 +1,5 @@
 <template>
   <div>
-    wantDecorate page
+    storys page
   </div>
 </template>

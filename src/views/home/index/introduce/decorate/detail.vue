@@ -2,7 +2,7 @@
   <div class="bigShowBox">
     <div class="smallShowBox">
       装修攻略详情
-    
+   
       <h1>{{ list.title }}</h1>
       <div v-html="list.content" class="showBox">
       </div>
@@ -42,3 +42,4 @@ export default {
     text-align: center;
   }
 </style>
+
