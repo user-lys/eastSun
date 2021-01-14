@@ -65,6 +65,11 @@ export const getPhotoInfo = (params) => {
   let url = 'https://xcx2020.dyrs.com.cn/api/photo_album?site_id=1&page=1&pageSize=8';
   return get(url, params)
 }
+export const getSiteDel = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/construction/details?';
+  https://xcx2020.dyrs.com.cn/api/construction/details?construction_id=106855
+  return get(url, params)
+}
 
 
 export const getStoryDel = (params) => {

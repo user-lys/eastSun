@@ -54,7 +54,7 @@ let index = [
     component: DecorateDetail
   },
   {
-    path: '/sitedel',
+    path: '/sitedel/:sitedelId',
     component: BuildingSiteDetail
   },
   {

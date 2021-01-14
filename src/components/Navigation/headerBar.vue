@@ -17,14 +17,6 @@
 import store from "vuex";
 
 export default {
-  // data:{
-  //   currentCity: "全国",
-  // },
-  mounted(){
-    window.onscroll = () => {
-      console.log(123);
-    }
-  },
   computed:{
     currentCity(){
       return store.state.currentCity;

@@ -2,30 +2,30 @@
   <div class="detail">
       <div class="header">
         <div class="head">
-          <h1>上善颐园-120平米-现代简约-在施工地</h1>
-          <i>浏览 <span>22</span></i>
+          <h1>{{list.title}}</h1>
+          <i>浏览 <span>{{list.views}}</span></i>
         </div>
       </div>
       <div class="bac1"></div>
       <div class="center">
         <h1>贴身管家</h1>
         <div class="info">
-          <div class="person1"><img src="../../../../../assets/image/women.png" alt=""></div>
+          <div class="person1"><img :src="list.designer.avatar" alt=""></div>
           <div class="info_p1">
-            <h3>方秀丽</h3>
-            <p>从业经验： <span>10</span>年</p>
-            <p>案例作品： <span>7</span>套</p>
+            <h3>{{list.designer.name }}</h3>
+            <p>从业经验： <span>{{list.designer.work_years}}</span>年</p>
+            <p>案例作品： <span>{{list.designer.case_num}}</span>套</p>
           </div>
           <div class="design">
             找TA设计
           </div>
         </div>
         <div class="info">
-          <div class="person1"><img src="../../../../../assets/image/men.png" alt=""></div>
+          <div class="person1"><img :src="list.team.cover_image" alt=""></div>
           <div class="info_p1">
-            <h3>方秀丽</h3>
-            <p>从业经验： <span>10</span>年</p>
-            <p>案例作品： <span>7</span>套</p>
+            <h3>{{list.team.name}}</h3>
+            <p>从业经验： <span>{{ list.team.work_years}}</span>年</p>
+            <p>案例作品： <span>{{ list.team.finish_num}}</span>套</p>
           </div>
           <div class="design">
             找TA设计
@@ -36,15 +36,15 @@
         <div class="family">
           <div class="ordinary like">
             <h1>户型</h1>
-            <p>普通住宅</p>
+            <p>{{list.housetype.name}}</p>
           </div>
           <div class="modern like">
             <h1>风格</h1>
-            <p>现代简约</p>
+            <p>{{list.housestyle.name}}</p>
           </div>
           <div class="area like">
             <h1>面积</h1>
-            <p>120平米</p>
+            <p>{{list.area}}平米</p>
           </div>
         </div>
         <van-steps :active="active" style="width:95%;margin:0 auto;">
@@ -61,16 +61,36 @@
        <div class="hr">
           <van-tabs v-model="active1" line-width="15px" >
       
-          <van-tab title="开工大吉"></van-tab>
-          <van-tab title="前端施工"></van-tab>
-          <van-tab title="中期施工"></van-tab>
-          <van-tab title="后期施工"></van-tab>
-          <van-tab title="竣工"></van-tab>
+          <van-tab title="开工大吉">
+            <div v-for="item in list.pic" :key="item.id">
+              <img v-if="item.stage_text=='开工大吉'" :src="item.imgfile_image" alt="">
+            </div>
+          </van-tab>
+          <van-tab title="前端施工">
+            <div v-for="item in list.pic" :key="item.id">
+              <img v-if="item.stage_text=='前期施工'" :src="item.imgfile_image" alt="">
+            </div>
+          </van-tab>
+          <van-tab title="中期施工">
+             <div v-for="item in list.pic" :key="item.id">
+              <img v-if="item.stage_text=='中期施工'" :src="item.imgfile_image" alt="">
+            </div>
+          </van-tab>
+          <van-tab title="后期施工">
+            <div v-for="item in list.pic" :key="item.id">
+              <img v-if="item.stage_text=='后期施工'" :src="item.imgfile_image" alt="">
+            </div>
+          </van-tab>
+          <van-tab title="竣工">
+            <div v-for="item in list.pic" :key="item.id">
+              <img v-if="item.stage_text=='后期施工'" :src="item.imgfile_image" alt="">
+            </div>
+          </van-tab>
       </van-tabs>
       <hr style="width:100%;height:5px;background:grey;margin-top:5px;border-radius:5px;position:absolute;"/>
        </div>
 
-      <div class="share">
+      <!-- <div class="share">
         <p> 
           <span style="margin-right:25px;">点赞</span>
           <span class="span3"></span>
@@ -79,7 +99,8 @@
           <span>分享</span>
           <span class="span1"></span>
         </p>
-      </div>
+      </div> -->
+      <share></share>
       <div class="visit">
         <h1>免费参观工地</h1>
         <p>立即预约参观</p>
@@ -100,7 +121,9 @@
 import Vue from 'vue';
 import { Card,Step, Steps } from 'vant';
 import { Tab, Tabs } from 'vant';
-
+import {getSiteDel} from '@/api/index';
+import share from '@/components/sharePublic/share'
+import Share from '../../../../../components/sharePublic/share.vue';
 Vue.use(Tab);
 Vue.use(Tabs);
 Vue.use(Step);
@@ -111,8 +134,19 @@ export default {
     return {
       active: 1,
       active1:0,
+      list:[]
     };
   },
+  methods:{
+  },
+  components:{
+    share
+  },
+  async created(){
+    await getSiteDel({
+        "construction_id": this.$route.params.sitedelId,
+      }).then((ret)=>this.list= ret.data)
+  }
 }
 </script>
 

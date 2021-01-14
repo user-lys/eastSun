@@ -19,16 +19,17 @@
     <div class="caseBox" v-for="item in list" :key="item.id" @click="tozxal(123)">
       <h3>{{item.title}}</h3>
       <p>
-        <span>普通住宅|</span>
-        
-        <span></span>
+        <span v-if="item.housetype.name !== null">{{ item.housetype.name }} | </span>
+        <span v-if="item.housestyle.name !== null">{{ item.housestyle.name }} | </span>
         <i>{{item.area}}平</i>
       </p>
+
       <div class="caseImgBox">
-        <img src="https:\/\/artwork.dyrs.cc\/photo\/909\/425\/000\/3485ff6d9b4bc4a9.jpg!l" alt="">
-        <img src="https:\/\/artwork.dyrs.cc\/photo\/909\/425\/000\/3485ff6d9b4bc4a9.jpg!l" alt="">
-        <img src="https:\/\/artwork.dyrs.cc\/photo\/909\/425\/000\/3485ff6d9b4bc4a9.jpg!l" alt="">
+        <div v-for="(el,index) in item.photofile" :key="el.id"  >
+           <img v-if="index<3" :src="el.image+'!l'" alt="">
       </div>
+      </div>
+      
       <div class="smalliconfont">
         <p>
           <van-icon name="eye-o"/> <span>{{item.views}}</span>
@@ -38,26 +39,6 @@
       </div>
     </div>
 
-    <div class="caseBox">
-      <h3>东方瑞景-91.47平米-现代风格-装修效果图</h3>
-      <p>
-        <span>普通住宅</span>
-        |
-        <i>91平</i>
-      </p>
-      <div class="caseImgBox">
-        <img src="https:\/\/artwork.dyrs.cc\/photo\/909\/425\/000\/3485ff6d9b4bc4a9.jpg!l" alt="">
-        <img src="https:\/\/artwork.dyrs.cc\/photo\/909\/425\/000\/3485ff6d9b4bc4a9.jpg!l" alt="">
-        <img src="https:\/\/artwork.dyrs.cc\/photo\/909\/425\/000\/3485ff6d9b4bc4a9.jpg!l" alt="">
-      </div>
-      <div class="smalliconfont">
-        <p>
-          <van-icon name="eye-o"/> <span>6</span>
-          <van-icon name="good-job-o" /> 0
-        </p>
-       <p> <van-icon name="star-o" /> 收藏</p>
-      </div>
-    </div>
   </div>
  </div>
 </template>
@@ -126,6 +107,7 @@ export default {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    flex-grow: 0;
   }
   .caseBigBox{
     background-color: #F7F7F7;
@@ -157,13 +139,17 @@ export default {
     margin-top: 18px;
     margin-bottom: 12px;
   }
+  // .caseImgWarp{
+  //   display: flex;
+  //   flex-wrap: nowrap;
+  // }
   .caseImgBox{
     display: flex;
     width: 100%;
     justify-content: space-between;
   }
   .caseImgBox img{
-    width: 32%;
+    width: 98%;
     margin-bottom: 5px;
   }
   .smalliconfont{
