@@ -10,7 +10,7 @@
     </div>
     
 
-    <div class="address" v-for="item in list" :key="item.id">
+    <div class="address" v-for="item in list" :key="item.id" @click="toxxmd(123)">
       <img :src="item.cover_image" alt="">
       <div class="smallBox">
         <h3>{{ item.name }}</h3>
@@ -43,6 +43,9 @@ export default {
     titleBar,
   },
   methods:{
+    toxxmd(id){
+      this.$router.push("addressdel/"+ id);
+    },
     async getAddresss(){
       let ret = await getAddress({
         site_id:1,

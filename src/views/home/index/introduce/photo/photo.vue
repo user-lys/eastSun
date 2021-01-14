@@ -7,6 +7,7 @@
           v-for="(item, index) in ProcessInfo"
           :key="index" style="height: 220px
           "
+          @click="tophoneDetail(item.id)"
         >
           <div class="img">
             <img :src="item.image + '!l'" alt="" />
@@ -52,11 +53,14 @@ export default {
     // 发送请求
     async getPhotoInfos() {
       const PhotoInfo = await getPhotoInfo();
-      console.log(PhotoInfo);
+      // console.log(PhotoInfo);
       console.log(PhotoInfo.data.list);
       this.ProcessInfo = PhotoInfo.data.list;
       this._initSwiper();
     },
+    tophoneDetail(phoneid){
+      this.$router.push("/photodel/"+phoneid);
+    }
   },
   created() {
     this.getPhotoInfos();

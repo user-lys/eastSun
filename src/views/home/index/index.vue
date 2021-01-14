@@ -239,6 +239,9 @@ import phone from "@/components/rightPublic/phone";
           path: url
         })
       },
+
+      
+
       changeActive(index){
         this.shows = index;
         this.go(this.tabs[index].url);

@@ -9,7 +9,7 @@
       <img src="https:\/\/imgapp.dyrs.cc\/xcx\/uploads\/20200915\/c2a936a8919154f50f1f691c07668f12.png" alt="">
     </div>
 
-    <div class="loupan" v-for="item in list" :key="item.id">
+    <div class="loupan" v-for="item in list" :key="item.id" @click="tormlp(123)">
       <img :src="item.cover_image" alt="">
       <div class="smallBox">
         <h3><i>{{ item.name }}</i> <b><van-icon name="eye-o" />{{ item.views }}</b></h3>
@@ -38,6 +38,9 @@ export default {
     titleBar,
   },
   methods:{
+    tormlp(id){
+      this.$router.push("hotprodel/"+id);
+    },
     async getHotPropertys(){
       let ret = await getHotProperty({
         site_id:1,

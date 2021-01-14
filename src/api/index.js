@@ -86,3 +86,16 @@ export const getStoryjj = (params) => {
 
 
 
+export const getzxgy = (params) => {
+  let url = 'https://xcx2020.dyrs.com.cn/api/decorate_strategy/index?page=1&pageSize=2';
+  return get(url, params)
+}
+
+
+export const getPhotoDels = (params) => {
+  let url = '';
+  return get(url, params)
+}
+
+
+

@@ -50,7 +50,7 @@ let index = [
   },
   
   {
-    path: '/decoratedel',
+    path: '/decoratedel/:decoratedelld',
     component: DecorateDetail
   },
   {
@@ -58,7 +58,7 @@ let index = [
     component: BuildingSiteDetail
   },
   {
-    path: '/photodel',
+    path: '/photodel/:photodelId',
     component: PhotoDetail
   },
   {
@@ -66,7 +66,7 @@ let index = [
     component: Case
   },
   {
-    path: '/case/detail',
+    path: '/casedel/:casedelId',
     component: Casedel
   },
   {
@@ -78,7 +78,7 @@ let index = [
     component: HotProperty
   },
   {
-    path: '/hotprodel',
+    path: '/hotprodel/:hotprodelId',
     component: HotPropertyDel
   },
   {
@@ -86,7 +86,7 @@ let index = [
     component: Address
   },
   {
-    path: '/addressdel',
+    path: '/addressdel/:addressId',
     component: AddressDel
   },
   {
