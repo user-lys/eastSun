@@ -1,6 +1,6 @@
 <template>
   <div class="index-warp">
-    <div class="site-warp" v-for="item in onlineSite" :key="item.id">
+    <div class="site-warp" @click="go('/sitedel/'+item.construction_id)" v-for="item in onlineSite" :key="item.id">
       <img :src="item.cover_image" alt="">
       <div class="site-content">
         <h4>{{item.title}}</h4>
@@ -21,9 +21,13 @@ export default {
     }
   },
   methods: {
+    go(url){
+      this.$router.push(url)
+    },
     async getOnlineSites() {
       let ret = await getOnlineSite();
       this.onlineSite = ret.data.list;
+      console.log(ret);
     }
   },
   created () {

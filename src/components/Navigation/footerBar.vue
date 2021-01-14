@@ -46,7 +46,6 @@ export default {
     },
 };
 </script>
-
 <style lang="scss" scoped>
   .tabbar{
     height: 60px;
@@ -61,5 +60,8 @@ export default {
     .nav{
       font-size: 14px;
     }
+  }
+  .iconfont{
+    font-size: 25px;
   }
 </style>

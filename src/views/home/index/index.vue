@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <Header/>
+    <erji></erji>
+    <phone></phone>
+    <Header></Header>
     <van-swipe :autoplay="3000" :touchable="true" >
       <van-swipe-item v-for="(image, index) in banner" :key="index">
         <img :src="image" />
@@ -131,7 +133,7 @@
         <h2>业主故事</h2>
       </div>
       <van-swipe class="case-swipe" :loop="false"  :height="150" :show-indicators="false" :touchable="true">
-          <van-swipe-item  v-for="item in story" :key="item.id">
+          <van-swipe-item  v-for="item in story" :key="item.id" @click="go('/story/'+item.id)">
             <div class="story-warp">
               <div class="story-content">
                 <div class="head-icon"><img :src="item.avatar" alt=""></div>
@@ -177,6 +179,11 @@
   import Cutting from './components/cutting.vue'
   import { getIndexSwiper, getBanner, getStory } from "@/api/index";
   import Vue from "vue"
+import Header from "@/components/Navigation/headerBar.vue";
+import erji from "@/components/rightPublic/erji";
+import phone from "@/components/rightPublic/phone";
+  // 导入map系列方法
+  import {mapMutations} from "vuex";
   import {
     Swipe,
     IconSwipe,
@@ -184,7 +191,6 @@
     Toast,
     Lazyload,
     Icon,
-
   } from 'vant';
   Vue.use(Swipe).use(SwipeItem).use(Lazyload, {
     lazyComponent: true
@@ -192,12 +198,8 @@
   export default {
     data() {
       return {
-        // images: [
-        //   "/images/swipe/swipe1.jpg",
-        //   "/images/swipe/swipe2.jpg",
-        //   "/images/swipe/swipe3.jpg",
-        //   "/images/swipe/swipe4.jpg",
-        // ],
+        path: "",
+        top: 0,
         caseList:[],
         story:[],
         banner:[],
@@ -226,11 +228,20 @@
       };
     },
     methods: {
+      ...mapMutations({
+        setFooter:"setFooter",
+        getCurrentPath:"getCurrentPath"
+        }),
+      
+
       go(url) {
         this.$router.push({
           path: url
         })
       },
+
+      
+
       changeActive(index){
         this.shows = index;
         this.go(this.tabs[index].url);
@@ -260,9 +271,28 @@
 
     components: {
       Cutting,
-      Header
+      Header,
+      erji,
+      phone
+    },
+
+    beforeDestroy(){
+      const sessionTop = document.documentElement.scrollTop;
+      const str = window.location.href.split("#")[1];
+      this.getCurrentPath([this.path,sessionTop]);
+      if(str == "/mine"){
+        this.setFooter(true);
+      }else if(str == "/want"){
+        this.setFooter(true);
+      }else if(str == "/index/stylists"){
+        this.setFooter(true);
+      }else{
+         this.setFooter(false);
+      }
     },
     async created () {
+      this.setFooter(true);
+    
       this.getIndexSwipers();
       this.getStorys()
       await this.getBanners();
@@ -594,5 +624,8 @@
       color: #ccc;
       margin: 10px 0;
     }
+  }
+  .iconfont{
+    font-size: 30px;
   }
 </style>

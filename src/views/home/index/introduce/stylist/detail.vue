@@ -5,11 +5,11 @@
     </titleBar>
     <div class="content-warp">
       <div class="personal">
-        <div class="img"><img src="" alt=""></div>
+        <div class="img"><img :src="storyList.avatar" alt=""></div>
         <div class="detail">
-          <h4>周磊</h4>
-          <div>案例作品: <span></span> </div>
-          <div>从业经验: <span></span> </div>
+          <h4>{{storyList.name}}</h4>
+          <div>案例作品: <span>{{storyList.case_num}}套</span> </div>
+          <div>从业经验: <span>{{storyList.work_years}}年</span> </div>
           <div>
             <button>一对一在线咨询</button>
           </div>
@@ -21,6 +21,7 @@
             <svg t="1610414321018" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3619" width="25" height="25"><path d="M376.8 619.8h272.4c15 0 27.2 12.2 27.2 27.2s-12.2 27.2-27.2 27.2H376.8c-15 0-27.2-12.2-27.2-27.2s12.1-27.2 27.2-27.2z m0-272.5h109c15 0 27.2 12.2 27.2 27.2s-12.2 27.2-27.2 27.2h-109c-15 0-27.2-12.2-27.2-27.2-0.1-15 12.1-27.2 27.2-27.2z m0 136.2h272.4c15 0 27.2 12.2 27.2 27.2s-12.2 27.2-27.2 27.2H376.8c-15 0-27.2-12.2-27.2-27.2-0.1-15 12.1-27.2 27.2-27.2z m-109-326.9h365.1l179.8 163.5v490.4c0 30.1-24.4 54.5-54.5 54.5H267.8c-30.1 0-54.5-24.4-54.5-54.5V211.1c0-30.1 24.4-54.5 54.5-54.5z m490.8 218v-27.2l-109.4-97.1v124.3h109.4z m0 54.5h-137c-15 0-27.2-12.2-27.2-27.2 0-1.6 0.1-3.2 0.4-4.8v-186h-300c-15 0-27.2 12.2-27.2 27.2v544.9c0 15 12.2 27.2 27.2 27.2h436.6c15 0 27.2-12.2 27.2-27.2V429.1z" p-id="3620"></path></svg>
             个人简介
           </h5>
+          {{storyList.description}}
           <h5>
             <svg t="1610414601755" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
               p-id="9267" width="25" height="16">
@@ -29,6 +30,7 @@
                 p-id="9268"></path>
             </svg>
             所在门店</h5>
+            <img :src="storyList.company.cover_image" alt="">
         </van-tab>
         <van-tab title="相关案例">内容 2</van-tab>
         <van-tab title="服务楼盘">内容 3</van-tab>
@@ -49,16 +51,29 @@ import { Tab, Tabs } from 'vant';
 Vue.use(Tab);
 Vue.use(Tabs);
 import titleBar from "@/components/titleBar/titleBar.vue";
+import { getStoryjj } from "@/api/index";
 export default {
   data () {
     return {
       active: 0,
+      storyList:[],
     }
   },
   components: {
     titleBar
   },
-  
+  methods:{
+    async getStoryjjs() {
+      // 获取到传来的id
+      console.log(this.$route.params.stylistId);
+      const storyjj = await getStoryjj({designer_id:this.$route.params.stylistId})
+      console.log(storyjj.data.company.cover_image);
+      this.storyList = storyjj.data;    
+      },
+  },
+  created(){
+    this.getStoryjjs()
+  }
 }
 </script>
 
