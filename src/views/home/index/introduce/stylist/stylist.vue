@@ -7,6 +7,7 @@
           v-for="(item, index) in ProcessInfo"
           :key="index" style="height: px
           "
+          @click="sjs(item.designer_id)"
         >
           <div class="img" style="margin-bottom:0px">
             <img :src="item.avatar" alt="" />
@@ -41,6 +42,9 @@ export default {
   },
   name: "Slider",
   methods: {
+    sjs(designId){
+      this.$router.push("/stylist/"+ designId);
+    },
     design(){
       Toast("您已预约成功");
     },
@@ -62,12 +66,14 @@ export default {
     async getshejishiInfos() {
       const shejishiInfo = await getshejishiInfo();
       console.log(shejishiInfo.data.list);
+
       this.ProcessInfo = shejishiInfo.data.list;
       this._initSwiper() ;
     },
   },
   created() {
     this.getshejishiInfos();
+
   },
 };
 </script>

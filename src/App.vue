@@ -8,7 +8,6 @@
 </template>
 
 <script>
-
 import Footer from "@/components/Navigation/footerBar.vue";
 export default {
   created() {

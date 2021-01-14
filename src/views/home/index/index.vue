@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <Header/>
+    <erji></erji>
+    <phone></phone>
+    <Header></Header>
     <van-swipe :autoplay="3000" :touchable="true" >
       <van-swipe-item v-for="(image, index) in banner" :key="index">
         <img :src="image" />
@@ -131,7 +133,7 @@
         <h2>业主故事</h2>
       </div>
       <van-swipe class="case-swipe" :loop="false"  :height="150" :show-indicators="false" :touchable="true">
-          <van-swipe-item  v-for="item in story" :key="item.id">
+          <van-swipe-item  v-for="item in story" :key="item.id" @click="go('/story/'+item.id)">
             <div class="story-warp">
               <div class="story-content">
                 <div class="head-icon"><img :src="item.avatar" alt=""></div>
@@ -177,6 +179,9 @@
   import Cutting from './components/cutting.vue'
   import { getIndexSwiper, getBanner, getStory } from "@/api/index";
   import Vue from "vue"
+import Header from "@/components/Navigation/headerBar.vue";
+import erji from "@/components/rightPublic/erji";
+import phone from "@/components/rightPublic/phone";
   // 导入map系列方法
   import {mapMutations} from "vuex";
   import {
@@ -186,7 +191,6 @@
     Toast,
     Lazyload,
     Icon,
-
   } from 'vant';
   Vue.use(Swipe).use(SwipeItem).use(Lazyload, {
     lazyComponent: true
@@ -235,6 +239,9 @@
           path: url
         })
       },
+
+      
+
       changeActive(index){
         this.shows = index;
         this.go(this.tabs[index].url);
@@ -263,11 +270,12 @@
 
     components: {
       Cutting,
-      Header
+      Header,
+      erji,
+      phone
     },
 
     beforeDestroy(){
-      
       const sessionTop = document.documentElement.scrollTop;
       const str = window.location.href.split("#")[1];
       this.getCurrentPath([this.path,sessionTop]);
@@ -615,5 +623,8 @@
       color: #ccc;
       margin: 10px 0;
     }
+  }
+  .iconfont{
+    font-size: 30px;
   }
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="caseFixed">
-      <div class="caseHeader"><h1>设计团队</h1></div>
+      <!-- <div class="caseHeader"><h1>设计团队</h1></div> -->
+      <titleBar><div>设计团队</div></titleBar>
       <van-search v-model="value" shape="round" placeholder="请输入您要搜索的内容" />
       <div class="classify">
         <span>北京<i class="iconfont icon-f11-copy"></i></span>
@@ -16,7 +17,7 @@
     </div>
     <ul>
      
-       <li v-for="item in list" :key="item.id">
+       <li v-for="item in list" :key="item.id" @click="tostory(100887)">
         <img :src="item.avatar" alt="">
         <div class="fixHight">
           <h3>{{item.name}}</h3>
@@ -26,13 +27,16 @@
         </div>
         <button>找TA设计</button>
       </li>
-
     </ul>
   </div>
 </template>
 <script>
+import titleBar from "@/components/titleBar/titleBar"
 import { getTeam } from '@/api/index.js'
 export default {
+  components:{
+    titleBar,
+  },
   data() {
     return {
       value:'',
@@ -40,6 +44,10 @@ export default {
     }
   },
   methods:{
+    tostory(id){
+      this.$router.push("stylist/" + id);
+    },
+
     async getTeams(){
       let ret = await getTeam(
         // https://xcx2020.dyrs.com.cn/api/subject?site_id=1page=1&pageSize=10&keyword=&house_area_id=0&house_type_id=0

@@ -1,14 +1,15 @@
 <template>
   <div class="bigBox">
      <div class="caseFixed">
-      <div class="caseHeader"><h1>热装楼盘</h1></div>
+      <!-- <div class="caseHeader"><h1>热装楼盘</h1></div> -->
+      <titleBar><div>热门楼盘</div></titleBar>
       <van-search v-model="value" shape="round" placeholder="请输入您要搜索的内容" />
     </div>
     <div class="guanggao">
       <img src="https:\/\/imgapp.dyrs.cc\/xcx\/uploads\/20200915\/c2a936a8919154f50f1f691c07668f12.png" alt="">
     </div>
 
-    <div class="loupan" v-for="item in list" :key="item.id">
+    <div class="loupan" v-for="item in list" :key="item.id" @click="tormlp(123)">
       <img :src="item.cover_image" alt="">
       <div class="smallBox">
         <h3><i>{{ item.name }}</i> <b><van-icon name="eye-o" />{{ item.views }}</b></h3>
@@ -23,7 +24,7 @@
 <script>
 import Vue from 'vue';
 import { Icon } from 'vant';
-
+import titleBar from "@/components/titleBar/titleBar"
 Vue.use(Icon);
 import { getHotProperty } from '@/api/index.js'
 export default {
@@ -33,7 +34,13 @@ export default {
       list: []
     }
   },
+  components:{
+    titleBar,
+  },
   methods:{
+    tormlp(id){
+      this.$router.push("hotprodel/"+id);
+    },
     async getHotPropertys(){
       let ret = await getHotProperty({
         site_id:1,

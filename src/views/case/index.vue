@@ -2,22 +2,21 @@
  <div class="case">
     <div class="caseBigBox">
     <div class="caseFixed">
-      <div class="caseHeader"><h1>装修案例</h1></div>
+      <!-- <div class="caseHeader"><h1>装修案例</h1></div> -->
+      <titleBar><div>装修案例</div></titleBar>
       <van-search v-model="value" shape="round" placeholder="请输入您要搜索的内容" />
       <div class="classify">
         <span>北京<i class="iconfont icon-f11-copy"></i></span>
         <span>面积<i class="iconfont icon-f11-copy"></i></span>
         <span>户型<i class="iconfont icon-f11-copy"></i></span>
         <span>风格<i class="iconfont icon-f11-copy"></i></span>
-
       </div>
-        
     </div>
     <div class="guanggao">
       <img src="https:\/\/imgapp.dyrs.cc\/xcx\/uploads\/20200915\/c2a936a8919154f50f1f691c07668f12.png" alt="">
     </div>
 
-    <div class="caseBox" v-for="item in list" :key="item.id">
+    <div class="caseBox" v-for="item in list" :key="item.id" @click="tozxal(123)">
       <h3>{{item.title}}</h3>
       <p>
         <span v-if="item.housetype.name !== null">{{ item.housetype.name }} | </span>
@@ -48,6 +47,7 @@ import "@/assets/font/iconfont.css"
 import { getCase } from '@/api/index.js'
 import Vue from 'vue';
 import { Search } from 'vant';
+import titleBar from "@/components/titleBar/titleBar"
 
 Vue.use(Search);
 export default {
@@ -57,7 +57,13 @@ export default {
       list: []
     }
   },
+  components:{
+    titleBar,
+  },
   methods:{
+    tozxal(id){
+      this.$router.push("casedel/"+id);
+    },
     async getCases(){
       let ret = await getCase({
         // https://xcx2020.dyrs.com.cn/api/subject?site_id=1page=1&pageSize=10&keyword=&house_area_id=0&house_type_id=0

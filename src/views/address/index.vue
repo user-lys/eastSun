@@ -1,7 +1,8 @@
 <template>
   <div class="bigBox">
      <div class="caseFixed">
-      <div class="caseHeader"><h1>线下门店</h1></div>
+      <!-- <div class="caseHeader"><h1>线下门店</h1></div> -->
+      <titleBar><div>线下门店</div></titleBar>
       <div class="guanggao">
       <img src="https:\/\/imgapp.dyrs.cc\/xcx\/uploads\/20200915\/c2a936a8919154f50f1f691c07668f12.png" alt="">
     </div>
@@ -9,7 +10,7 @@
     </div>
     
 
-    <div class="address" v-for="item in list" :key="item.id">
+    <div class="address" v-for="item in list" :key="item.id" @click="toxxmd(123)">
       <img :src="item.cover_image" alt="">
       <div class="smallBox">
         <h3>{{ item.name }}</h3>
@@ -28,7 +29,7 @@
 <script>
 import Vue from 'vue';
 import { Icon } from 'vant';
-
+import titleBar from "@/components/titleBar/titleBar"
 Vue.use(Icon);
 import { getAddress } from '@/api/index.js'
 export default {
@@ -38,7 +39,13 @@ export default {
       list: []
     }
   },
+  components:{
+    titleBar,
+  },
   methods:{
+    toxxmd(id){
+      this.$router.push("addressdel/"+ id);
+    },
     async getAddresss(){
       let ret = await getAddress({
         site_id:1,

@@ -1,49 +1,44 @@
 <template>
-  <div>
+  <div class="header" style="padding:0px">
+    <titleBar><div>业主故事详情</div></titleBar>
     <!-- 头部 -->
-    <div></div>
     <div class="top">
       <div class="img">
         <img
-          src="https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1561232978,2405921637&fm=111&gp=0.jpg"
+          :src="storyList.avatar"
           alt=""
         />
       </div>
       <div class="right">
-        <h2>机场雷雨</h2>
-        <p>浙江省-杭州市-新中式</p>
+        <h2>{{storyList.add_user}}</h2>
+        <p>{{storyList.provinces_cities}}</p>
       </div>
     </div>
     <div class="text">
-      哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+      {{storyList.sgz_content}}
     </div>
     <div class="jiazaizhong">加载中...</div>
     <div class="center">
-      <p class="p1"></p>
-      <p class="p2"></p>
+      <p class="p1">
+        <img :src="storyList.title_image" alt="">
+      </p>
+      <p class="p2">
+        <img :src="storyList.title_image" alt="">
+      </p>
     </div>
-
-    <!-- <div class="share">
-        <div @click="fenxing"><van-icon name="share-o" />分享</div>
-        <div @click="shouc"><van-icon name="star-o" />收藏</div>
-        <div @click="dianzan"><van-icon name="good-job-o" />点赞</div>
-    </div> -->
     <share></share>
     <div class="wojia"><p>我家也要装成这样</p></div>
 
     <div class="changedemo">
       <div class="changedemoinner">
-      <p>立即获取装修方案</p>
+        <p>立即获取装修方案</p>
       </div>
     </div>
 
     <div class="last"><van-icon name="phone-o" /><span>400-0060-250</span></div>
 
-
     <erji></erji>
     <phone></phone>
-
-
   </div>
 </template>
 <script>
@@ -51,25 +46,50 @@
 import erji from "@/components/rightPublic/erji";
 import phone from "@/components/rightPublic/phone";
 import share from "@/components/sharePublic/share";
+import titleBar from "@/components/titleBar/titleBar"
+import { getStoryDel,getLogin } from "@/api/index";
 export default {
-  
+  data(){
+    return{
+      storyList:[],
+    }
+    
+  },
   components:{
     erji,
     phone,
     share,
+    titleBar,
+  },
+  methods:{
+    async getStoryDels() {
+      console.log(this.$route.params.storyId);
+      const storyDel = await getStoryDel({id:this.$route.params.storyId})
+      this.storyList = storyDel.data;    
+      },
+  },
+  async created() {
+    this.getStoryDels()
   }
-};
+}
 </script>
 <style lang="scss">
+.header{
+  overflow-x: hidden;
+}
 .top {
   width: 100%;
   display: flex;
+  margin-left: 10px;
   .img {
     width: 60px;
     height: 60px;
+    // border: 1px solid #cccccc;
+    border-radius: 30px;
     img {
       width: 100%;
       height: 100%;
+      border-radius: 50%;
     }
   }
   .right {
@@ -120,7 +140,7 @@ export default {
 //   }
 // }
 
-.wojia{
+.wojia {
   width: 100%;
   color: #666666;
   height: 72px;
@@ -130,7 +150,7 @@ export default {
   font-size: 26px;
   font-weight: 800;
 }
-.changedemo{
+.changedemo {
   width: 100%;
   height: 54px;
   display: flex;
@@ -138,9 +158,9 @@ export default {
   align-items: center;
   font-size: 23px;
   font-weight: 800;
-  .changedemoinner{
+  .changedemoinner {
     color: #cbb466;
-      width: 90%;
+    width: 90%;
     height: 54px;
     display: flex;
     justify-content: center;
@@ -148,11 +168,14 @@ export default {
     background-color: black;
   }
 }
-.last{
+.last {
   height: 80px;
   width: 100%;
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
+// .main{
+//   padding-bottom: 0px;
+// }
 </style>

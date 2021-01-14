@@ -1,8 +1,8 @@
 <template>
   <div class="wantouter">
-    <div class="headers">
-    <div class="header">我要装修</div>
-    </div>
+    <titleBar><div>我要装修</div></titleBar>
+
+
     <div class="center">
       <h1>三步搞定装修</h1>
 
@@ -34,12 +34,14 @@
 <script>
   import erji from "@/components/rightPublic/erji"
   import phone from "@/components/rightPublic/phone"
+  import titleBar from "@/components/titleBar/titleBar"
   import { mapMutations} from 'vuex'
 
 export default {
   components:{
     erji,
     phone,
+    titleBar,
   },
   methods:{
       ...mapMutations({
@@ -91,11 +93,12 @@ export default {
   left: 0;
 }
 .center {
+  margin-top: 10px;
   background-color: white;
   h1 {
     width: 100%;
     height: 90px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 900;
     font-family: Microsoft YaHei;
     display: flex;

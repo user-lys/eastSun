@@ -5,8 +5,9 @@
         <div
           class="swiper-slide"
           v-for="(item, index) in ProcessInfo"
-          :key="index" style="height: 320px
+          :key="index" style="height: 220px
           "
+          @click="tophoneDetail(item.id)"
         >
           <div class="img">
             <img :src="item.image + '!l'" alt="" />
@@ -52,11 +53,14 @@ export default {
     // 发送请求
     async getPhotoInfos() {
       const PhotoInfo = await getPhotoInfo();
-      console.log(PhotoInfo);
+      // console.log(PhotoInfo);
       console.log(PhotoInfo.data.list);
       this.ProcessInfo = PhotoInfo.data.list;
       this._initSwiper();
     },
+    tophoneDetail(phoneid){
+      this.$router.push("/photodel/"+phoneid);
+    }
   },
   created() {
     this.getPhotoInfos();
@@ -69,7 +73,7 @@ export default {
   width: 100%;
   height: 250px;
   margin: 0px auto;
-  background-color: #f7f7f7;
+  // background-color: #f7f7f7;
 }
 .swiper-slide {
   .img{
@@ -84,12 +88,11 @@ export default {
   font-size: 18px;
   background: #fff;
   width: 260px;
-  height: 220px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   // background-color: white;
 
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
